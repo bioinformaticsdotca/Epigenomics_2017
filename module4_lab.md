@@ -1,10 +1,11 @@
 ---
-layout: post2
-permalink: /epigenomic_data_analysis_module4_lab_2016/
-title: Epigenomic Data Analysis 2016 Student Page
-header1: Epigenomic Data Analysis 2016
-header2: Module 4 Lab
-image: CBW_Epigenome-data_icon.jpg
+layout: tutorial_page
+permalink: /epigenomics_2017_module4_lab
+title: Epigenomics Lab 4
+header1: Workshop Pages for Students
+header2: Epigenomic Data Analysis 2017 Module 4 Lab
+image: /site_images/CBW_Epigenome-data_icon.jpg
+home: https://bioinformaticsdotca.github.io/high-throughput_biology_2017
 ---
 
 # Module 4: Downstream analyses & integrative tools
