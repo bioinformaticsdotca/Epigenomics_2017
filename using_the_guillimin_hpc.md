@@ -1,10 +1,11 @@
 ---
-layout: post2
-permalink: /epigenomic_data_analysis_hpc_2016/
-title: Epigenomic Data Analysis 2016 Student Page
-header1: Epigenomic Data Analysis 2016
+layout: tutorial_page
+permalink: /epigenomics_2017_hpc_2017
+title: Epigenomics HPC
+header1: Workshop Pages for Students
 header2: Using the Guillimin HPC
-image: CBW_Epigenome-data_icon.jpg
+image: /site_images/CBW_Epigenome-data_icon.jpg
+home: https://bioinformaticsdotca.github.io/high-throughput_biology_2017
 ---
 
 # Using the Guillimin HPC
