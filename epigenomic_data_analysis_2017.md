@@ -9,43 +9,13 @@ image: /site_images/CBW_Epigenome-data_icon.jpg
 
 # Welcome <a id="welcome"></a>
 
-Welcome to Infectious Disease Genomic Epidemiology.  
+Welcome to Epigenomic Data Analysis.  
 
 The course schedule can be found [here](https://bioinformaticsdotca.github.io/epidemiology_2017_schedule).
 
+Pre-readings, pre-work, and laptop setup instructions can be found [here](https://bioinformaticsdotca.github.io//Epigenomics_2017_prework)
+
 If you have questions or comments, visit the workshop [Q&A forum](https://noteapp.com/Epi2017).
-
-***
-
-# Pre-Workshop Materials <a id="preworkshop"></a>
-
-## Laptop Setup Instructions
-
-Instructions to setup your laptop can be found [here](https://github.com/bioinformatics-ca/bioinformatics-ca.github.io/blob/master/2016_workshops/epigenomics/laptop_instructions.md).
-
-## Pre-workshop Readings
-
-[Introduction to High-Performance Computing](http://insidehpc.com/hpc-basic-training/what-is-hpc/)
-
-[Introduction to Compute Canada](https://www.computecanada.ca/research-portal/accessing-resources/)
-
-[Introduction to epigenomics](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3080743/)
-
-[Additional reading on ChIP-Seq](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3053263/)
-
-[Additional reading on Methylation analysis](http://www.ncbi.nlm.nih.gov/pubmed/22986265/) 
-
-##  Pre-workshop Tutorials
-
-[UNIX Preparation tutorials](http://www.ee.surrey.ac.uk/Teaching/Unix/): Please complete tutorials #1-3 on UNIX 
-
-[Unix cheat sheet](http://www.rain.org/~mkummel/unix.html)
-
-[IGV Tutorial](http://bioinformatics-ca.github.io/bioinformatics_for_cancer_genomics_IGV_lab_2016/): Review how to use IGV Genome Browser if you have not used this tool before.
-
-[UCSC Genome Browser tutorial](http://www.ncbi.nlm.nih.gov/pubmed/18514479)
-
-[FastQC Introduction and examples](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/)
 
 ***
 
