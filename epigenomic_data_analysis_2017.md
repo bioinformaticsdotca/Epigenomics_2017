@@ -34,7 +34,7 @@ If you have questions or comments, visit the workshop [Q&A forum](https://noteap
   
   [Lecture on Compute Canada](https://bioinformatics.ca/epigenomics-module-1-hpc-2016)
   
-  [Using the Guillimin HPC](http://bioinformatics-ca.github.io/epigenomic_data_analysis_hpc_2016/)
+  [Using the Compute Canada HPC](using_the_cc_hpc.md)
 
   [Lab practical](http://bioinformatics-ca.github.io/epigenomic_data_analysis_module1_lab_2016/)
   
