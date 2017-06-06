@@ -5,7 +5,7 @@ title: Epigenomics HPC
 header1: Workshop Pages for Students
 header2: Using the Guillimin HPC
 image: /site_images/CBW_Epigenome-data_icon.jpg
-home: https://bioinformaticsdotca.github.io/high-throughput_biology_2017
+home: https://bioinformaticsdotca.github.io/epigenomics_2017
 ---
 
 # Using the Compute Canada HPC
