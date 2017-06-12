@@ -5,21 +5,21 @@ title: Epigenomics Lab 3
 header1: Workshop Pages for Students
 header2: Epigenomic Data Analysis 2017 Module 3 Lab
 image: /site_images/CBW_Epigenome-data_icon.jpg
-home: https://bioinformaticsdotca.github.io/high-throughput_biology_2017
+home: https://bioinformaticsdotca.github.io/epigenomics_2017
 ---
 
 # Module 3: Introduction to WGBS and Analysis 
+*by Guillaume Bourque, PhD*
 
 ## Important notes:
-* Please refer to the following guide for instructions on how to connect to Guillimin and submit jobs: [using_the_guillimin_hpc.md](http://bioinformatics-ca.github.io/epigenomic_data_analysis_hpc_2016/)
-* The instructions in this tutorial will suppose you are in a Linux/Max environment. The equivalent tools in Windows are provided in the [Guillimin documentation](http://bioinformatics-ca.github.io/epigenomic_data_analysis_hpc_2016/.md).
-* The user **class99** is provided here as an example. You should replace it by the username that was assigned to you at the beginning of the workshop.
+* Please refer to the following guide for instructions on how to connect to the Compute Canada cluster: [Compute Canada instructions](https://bioinformaticsdotca.github.io/epigenomics_2017_hpc_2017)
+* The user **lect99** below is provided as an example. You should replace it by the username that was assigned to you at the beginning of the workshop.
 
+<!---
 [bam file](https://github.com/bioinformatics-ca/bioinformatics-ca.github.io/blob/master/2016_workshops/epigenomics/iPSC_1.1_bismark_bt2_pe_sorted.bam)
-
 [bai file](https://github.com/bioinformatics-ca/bioinformatics-ca.github.io/blob/master/2016_workshops/epigenomics/iPSC_1.1_bismark_bt2_pe_sorted.bam.bai)
-
 [bed graph](https://github.com/bioinformatics-ca/bioinformatics-ca.github.io/blob/master/2016_workshops/epigenomics/iPSC_1.1_bismark_bt2_pe.bedGraph)
+--->
 
 ## Introduction
 
