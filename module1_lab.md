@@ -32,16 +32,21 @@ This module will cover the basics of how to login to the cluster, launch jobs an
 
 #####  Connect to the Guillimin HPC
 ```
-ssh class99@guillimin.clumeq.ca
+ssh class99@workshop103.ccs.usherbrooke.ca
 ```
 
-You will be in your home folder. At this step, before continuing, please make sure that you followed the instructions in the section **"The first time you log in"** of the [Using the Guillimin HPC](http://bioinformatics-ca.github.io/epigenomic_data_analysis_hpc_2016/). If you don't, compute jobs will not execute normally.
+You will be in your home folder. 
 
 ##### Prepare directory for module 1
 ```
 rm -rf ~/module1
 mkdir -p ~/module1
 cd ~/module1
+```
+
+##### Prepare environment for module 1
+```
+module load mugqic/java mugqic/fastqc
 ```
 
 ### Assessing FASTQ file quality with FastQC
