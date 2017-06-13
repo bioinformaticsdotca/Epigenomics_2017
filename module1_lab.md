@@ -30,7 +30,7 @@ This module will cover the basics of how to login to the cluster, launch jobs an
 
 ### Getting started
 
-#####  Connect to the Guillimin HPC
+#####  Connect to the Workshop server
 ```
 ssh class99@workshop103.ccs.usherbrooke.ca
 ```
