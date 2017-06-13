@@ -79,7 +79,7 @@ At this point if you type ```ls``` should have something like:
 
 ```
 class99@workshop103$ ls
-H3K27ac.H1_fastqc.html	H3K27ac.H1_fastqc.zip  H3K27ac.H1.fastq.gz  STDIN.e60293217  STDIN.o60293217
+H3K27ac.H1_fastqc.html	H3K27ac.H1_fastqc.zip  H3K27ac.H1.fastq.gz
 ```
 
 #####  Download the results to your local computer
