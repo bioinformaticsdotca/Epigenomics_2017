@@ -11,7 +11,7 @@ home: https://bioinformaticsdotca.github.io/high-throughput_biology_2017
 # Module 1: Introduction to ChIP sequencing & analysis 
 
 ## Important notes:
-* Please refer to the following guide for instructions on how to connect to Guillimin and submit jobs: [Using the Guillimin HPC](http://bioinformatics-ca.github.io/epigenomic_data_analysis_hpc_2016/)
+* Please refer to the following guide for instructions on how to connect to the server and submit jobs: [Using the Guillimin HPC](http://bioinformatics-ca.github.io/epigenomic_data_analysis_hpc_2016/)
 * The instructions in this tutorial will suppose you are in a Linux/Max environment. The equivalent tools in Windows are provided in the [Using the Guillimin HPC](http://bioinformatics-ca.github.io/epigenomic_data_analysis_hpc_2016/).
 * The user **class99** is provided here as an example. You should replace it by the username that was assigned to you at the beginning of the workshop.
 
@@ -53,7 +53,7 @@ module load mugqic/java mugqic/fastqc
 
 ##### Copy locally the FASTQ file that we will need for our FastQC analysis
 ```
-cp /home/partage/epigenomics/chip-seq/H1/data/H3K27ac/H3K27ac.H1.fastq.gz .
+cp /home/partage/epigenomics/chip-seq/H1/data/H3K27ac/H3K27ac.H1.fastq.gz
 ```
 
 ##### Check files
@@ -71,13 +71,7 @@ fastqc -h
 
 #####  Run the FastQC command 
 ```
-module load mugqic/fastqc/0.1
-
-#####  Check the status of the job
-```
-showq -uclass%%
-```
-Where you replace **%%** by your student number. It usually takes a few seconds/minutes for the job to appear depending on the load of the cluster.
+fastqc H3K27ac.H1.fastq.gz
 
 ##### Check files
 
@@ -89,7 +83,7 @@ H3K27ac.H1_fastqc.html	H3K27ac.H1_fastqc.zip  H3K27ac.H1.fastq.gz  STDIN.e602932
 
 #####  Download the results to your local computer
 ```
-scp class99@guillimin.clumeq.ca:/home/class99/module1/H3K27ac.H1_fastqc.html .
+scp class99@workshop103.ccs.usherbrooke.ca:/home/class99/module1/H3K27ac.H1_fastqc.html .
 ```
 
 #####  Open the downloaded file in a web browser
