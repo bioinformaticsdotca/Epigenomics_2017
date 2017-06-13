@@ -11,7 +11,7 @@ home: https://bioinformaticsdotca.github.io/high-throughput_biology_2017
 # Module 1: Introduction to ChIP sequencing & analysis 
 
 ## Important notes:
-* Please refer to the following guide for instructions on how to connect to the server and submit jobs: [Using the Guillimin HPC](http://bioinformatics-ca.github.io/epigenomic_data_analysis_hpc_2016/)
+* Please refer to the following guide for instructions on how to connect to the workshop server and required modules [Using the Guillimin HPC](http://bioinformatics-ca.github.io/epigenomic_data_analysis_hpc_2016/)
 * The instructions in this tutorial will suppose you are in a Linux/Max environment. The equivalent tools in Windows are provided in the [Using the Guillimin HPC](http://bioinformatics-ca.github.io/epigenomic_data_analysis_hpc_2016/).
 * The user **class99** is provided here as an example. You should replace it by the username that was assigned to you at the beginning of the workshop.
 
@@ -60,7 +60,7 @@ cp /home/partage/epigenomics/chip-seq/H1/data/H3K27ac/H3K27ac.H1.fastq.gz
 
 At this point if you type ```ls``` should have something like:
 ```
-[class99@lg-1r14-n04 module1]$ ls
+class99@workshop103$ ls
 H3K27ac.H1.fastq.gz
 ```
 
@@ -72,12 +72,13 @@ fastqc -h
 #####  Run the FastQC command 
 ```
 fastqc H3K27ac.H1.fastq.gz
+```
 
 ##### Check files
+At this point if you type ```ls``` should have something like:
 
-At this point if you type ```ls``` should have something like
 ```
-[class99@lg-1r14-n04 module1]$ ls
+class99@workshop103$ ls
 H3K27ac.H1_fastqc.html	H3K27ac.H1_fastqc.zip  H3K27ac.H1.fastq.gz  STDIN.e60293217  STDIN.o60293217
 ```
 
