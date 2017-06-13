@@ -53,7 +53,7 @@ module load mugqic/java mugqic/fastqc
 
 ##### Copy locally the FASTQ file that we will need for our FastQC analysis
 ```
-cp /gs/project/mugqic/bioinformatics.ca/epigenomics/chip-seq/H1/data/H3K27ac/H3K27ac.H1.fastq.gz .
+cp /home/partage/epigenomics/chip-seq/H1/data/H3K27ac/H3K27ac.H1.fastq.gz .
 ```
 
 ##### Check files
@@ -64,10 +64,14 @@ At this point if you type ```ls``` should have something like:
 H3K27ac.H1.fastq.gz
 ```
 
-#####  Run the FastQC command on the scheduler
+#####  Check FastQC options 
 ```
-module load mugqic/fastqc/0.11.2 ; fastqc H3K27ac.H1.fastq.gz' | qsub -l nodes=1:ppn=1 -d .
+fastqc -h
 ```
+
+#####  Run the FastQC command 
+```
+module load mugqic/fastqc/0.1
 
 #####  Check the status of the job
 ```
