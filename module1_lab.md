@@ -61,7 +61,7 @@ H3K27ac.H1.fastq.gz
 
 #####  Run the FastQC command on the scheduler
 ```
-echo 'module load mugqic/fastqc/0.11.2 ; fastqc H3K27ac.H1.fastq.gz' | qsub -l nodes=1:ppn=1 -d .
+module load mugqic/fastqc/0.11.2 ; fastqc H3K27ac.H1.fastq.gz' | qsub -l nodes=1:ppn=1 -d .
 ```
 
 #####  Check the status of the job
