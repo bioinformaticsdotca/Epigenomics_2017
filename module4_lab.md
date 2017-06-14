@@ -5,15 +5,15 @@ title: Epigenomics Lab 4
 header1: Workshop Pages for Students
 header2: Epigenomic Data Analysis 2017 Module 4 Lab
 image: /site_images/CBW_Epigenome-data_icon.jpg
-home: https://bioinformaticsdotca.github.io/high-throughput_biology_2017
+home: https://bioinformaticsdotca.github.io/epigenomics_2017
 ---
 
 # Module 4: Downstream analyses & integrative tools
+*by David Bujold, M.Sc.*
 
 ## Important notes:
-* Please refer to the following guide for instructions on how to connect to Guillimin and submit jobs: [using_the_guillimin_hpc.md](http://bioinformatics-ca.github.io/epigenomic_data_analysis_hpc_2016/)
-* The instructions in this tutorial will suppose you are in a Linux/Max environment. The equivalent tools in Windows are provided in the [Guillimin documentation](http://bioinformatics-ca.github.io/epigenomic_data_analysis_hpc_2016/).
-* The user **class99** is provided here as an example. You should replace it by the username that was assigned to you at the beginning of the workshop.
+* Please refer to the following guide for instructions on how to connect to the Compute Canada cluster: [Compute Canada instructions](https://bioinformaticsdotca.github.io/epigenomics_2017_hpc_2017)
+* The user **lect99** below is provided as an example. You should replace it by the username that was assigned to you at the beginning of the workshop.
 
 
 ## Introduction
@@ -24,6 +24,7 @@ In this module's lab, we will explore some of the tools that were covered in the
 * First, we will learn how to use the IHEC Data Portal's tools to fetch datasets tracks of interest.
 * Second, we will explore ChIP-Seq peak prediction files to attempt discovering motifs using HOMER.
 * Third, we will use these datasets with the GREAT GO enrichment tool to do functions prediction.
+* Last, we'll explore and launch a few jobs on Galaxy.
 
 ### Local software that we will use
 * A web browser
@@ -35,10 +36,10 @@ In this module's lab, we will explore some of the tools that were covered in the
 
 #####  Connect to the Guillimin HPC
 
-We will need the HPC for some of the steps, so we'll open a shell access now. Replace *class99* with your login name.
+We will need the HPC for some of the steps, so we'll open a shell access now. Replace *lect99* with your login name.
 
 ```
-ssh class99@guillimin.clumeq.ca
+ssh lect99@guillimin.clumeq.ca
 ```
 
 You will be in your home folder. At this step, before continuing, please make sure that you followed the instructions in the section **"The first time you log in"** of the [Guillimin guide](using_the_guillimin_hpc.md). If you don't, compute jobs will not execute normally.
@@ -212,7 +213,7 @@ bigBedToBed S005HDH1.H3K27ac.ppqt_macs2_v2.20130819.bb S005HDH1.H3K27ac.ppqt_mac
 * Download the BED files locally using **scp** / **WinSCP**. Don't forget to run the command on a local terminal session, not on Guillimin.
 
 ```
-scp class99@guillimin.clumeq.ca:/home/class99/module4/great/*.bed .
+scp lect99@guillimin.clumeq.ca:/home/lect99/module4/great/*.bed .
 ```
 
 * Load the GREAT website: [http://bejerano.stanford.edu/great/public/html/](http://bejerano.stanford.edu/great/public/html/)
@@ -234,13 +235,13 @@ If you weren't able to retrieve the BED file from guillimin, you can also get it
 * Is the job done? (Replace %% by the number in your username)
 
 ```
-showq -uclass%%
+showq -ulect99
 ```
 
 If the job is completed, you can bring back HOMER results to your laptop for visualiztion. **From your laptop**, use the scp command or WinSCP to bring back the results folder.
 
 ```
-scp class%%@guillimin.clumeq.ca:/home/class%%/module4/homer/output .
+scp lect99@guillimin.clumeq.ca:/home/lect99/module4/homer/output .
 ```
 
 Then, open the de novo and known motifs HTML files in a browser for visualization. Do the identified motifs fit what we would expect?
@@ -251,7 +252,32 @@ If your job didn't complete yet, you can download the results from here instead:
 
 [Homer results](https://bioinformatics-ca.github.io/2016_workshops/epigenomics/homer_output.zip)
 
+
+
+### Galaxy
+
+We will now explore and learn how to user the Galaxy interface.
+
+
+http://masterv4-resub1.vzhost34.genap.ca/galaxy/
+
+
+
 ### Congrats, now you're really done!
 
 If you have time remaining, try running queries on other types of datasets. For example, does running a GREAT query on another cell type yield the type of annotations that you'd expect?
 
+
+
+
+
+
+
+
+
+
+
+
+## Answer to questions
+
+###
