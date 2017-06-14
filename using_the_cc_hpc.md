@@ -3,12 +3,13 @@ layout: tutorial_page
 permalink: /epigenomics_2017_hpc_2017
 title: Epigenomics HPC
 header1: Workshop Pages for Students
-header2: Using the Guillimin HPC
+header2: Using the Compute Canada HPC
 image: /site_images/CBW_Epigenome-data_icon.jpg
 home: https://bioinformaticsdotca.github.io/epigenomics_2017
 ---
 
 # Using the Compute Canada HPC
+*by David Bujold, M.Sc.*
 
 This document provides information on how to get started with the Compute Canada HPC setup prepared for this workshop.
 
