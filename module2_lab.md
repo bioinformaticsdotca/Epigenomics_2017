@@ -23,6 +23,7 @@ less /home/partage/epigenomics/chip-seq/setup.sh
 ```
 2. Create your personal working directory
 [for example i create my own working spase:
+
 ```
 out=/home/partage/epigenomics/chip-seq/H1test
 mkdir -p $out
@@ -46,7 +47,7 @@ less $H1data/H3K27ac/H3K27ac.H1.fastq.gz
 less $hg19/Homo_sapiens.hg19.fa | more
 ```
 
-4. BWA alignments.
+4. BWA: alignment.
 Lets check that we have bwa installed
 ```
 which bwa
@@ -55,32 +56,30 @@ bwa
 
 Run first step, "bwa aln"
 ```
-bwa aln $hg19/Homo_sapiens.hg19.fa $H1data/H3K27ac/H3K27ac.H1.fastq.gz > $out/H3K27ac.H1.sai
+bwa aln $hg19/Homo_sapiens.hg19.fa $H1data/H3K27ac/H3K27ac.H1.fastq.gz > H3K27ac.H1.sai
 ```
 
-# what we see on the screen
-[lect02@workshop103 H1test]$ bwa aln $hg19/Homo_sapiens.hg19.fa $H1data/H3K27ac/H3K27ac.H1.fastq.gz > $out/H3K27ac.H1.sai
-[bwa_aln] 17bp reads: max_diff = 2
-[bwa_aln] 38bp reads: max_diff = 3
-[bwa_aln] 64bp reads: max_diff = 4
-[bwa_aln] 93bp reads: max_diff = 5
-[bwa_aln] 124bp reads: max_diff = 6
-[bwa_aln] 157bp reads: max_diff = 7
-[bwa_aln] 190bp reads: max_diff = 8
-[bwa_aln] 225bp reads: max_diff = 9
-[bwa_aln_core] calculate SA coordinate... 16.38 sec
-[bwa_aln_core] write to the disk... 0.01 sec
-[bwa_aln_core] 49990 sequences have been processed.
-[main] Version: 0.7.12-r1039
-[main] CMD: /cvmfs/soft.mugqic/CentOS6/software/bwa/bwa-0.7.12/bwa aln /cvmfs/ref.mugqic/genomes/species/Homo_sapiens.hg19/genome/bwa_index//Homo_sapiens.hg19.fa /home/partage/epigenomics/chip-seq/H1/data//H3K27ac/H3K27ac.H1.fastq.gz
-[main] Real time: 37.272 sec; CPU: 27.768 sec
-
-
 small delay at the start as genome was beeing loaded...
+We should see a .sai file
+```
+ls -l
+```
+The .sai file is an intermediate file containing the suffix array indexes. Such file is afterwards translated into a SAM file.
 
+NOTE: if we align data from pair-end experiment we need to do alignment of both read1 and read2
 
+bwa aln <genome> read1.fastq > read1.sai
+bwa aln <genome> read1.fastq > read2.sai
 
-
+5. BWA: translation of suffix index file into SAM
+```
+bwa samse -f H3K27ac.H1.sam $hg19/Homo_sapiens.hg19.fa H3K27ac.H1.sai $H1data/H3K27ac/H3K27ac.H1.fastq.gz
+```
+See that sam file is there
+```
+ls -l
+less H3K27ac.H1.sam
+```
 
 
 /gs/project/mugqic/bioinformatics.ca/epigenomics/chip-seq/H1/data/H3K27ac/H3K27ac.H1.fastq.gz
