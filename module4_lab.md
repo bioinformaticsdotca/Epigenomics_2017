@@ -294,8 +294,8 @@ While you can run Galaxy jobs without creating an account, features and number o
 * You are now logged in as a Galaxy user. For this exercise, we’ll use subsets of data from the Illumina BodyMap 2.0 project, from human adrenal gland tissues. The sampled reads are paired-end 50bp that map mostly to a 500Kb region of chromosome 19, positions 3-3.5 million (chr19:3000000:3500000). (source: https://usegalaxy.org/u/jeremy/p/galaxy-rna-seq-analysis-exercise)
 
 * Import the following two FASTQ files in your user space. To do so, use Get Data > Upload File from the tool section. You can provide both URLs in the same text box, or do the same job twice.
-    * [https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/files/adrenal_1.fastq)
-    * [https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/files/adrenal_2.fastq)
+    * [https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/files/adrenal_1.fastq](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/files/adrenal_1.fastq)
+    * [https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/files/adrenal_2.fastq](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/files/adrenal_2.fastq)
 
 * For Genome, specify “Human (Home sapiens): hg19”, and then click Execute.
 
