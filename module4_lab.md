@@ -256,7 +256,7 @@ scp lect99@workshop103.ccs.usherbrooke.ca:/home/lect99/module4/great/*.bed .
 * Submit the form.
 
 * In the results, for instance, you should obtain something like this for biological processes:
-
+.`
 <img src="https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/module4_GREAT_go_biological_process.png" alt="Region" width="750" />
 
 ### Go back to your HOMER results
@@ -279,13 +279,47 @@ If your job didn't complete yet, you can download the complete results from here
 
 ### Galaxy
 
-We will now explore and learn how to user the Galaxy interface. In this short exercise,
+We will now explore and learn how to user the Galaxy interface. In this short exercise, we will load a FASTQ dataset, run FastQC on it, and trim it to improve overall quality of reads.
 
-Using a web browser, open the following URL: ```http://workshop103-galaxy.vzhost34.genap.ca/galaxy/```
+* Using a web browser, open the following URL: ```http://workshop103-galaxy.vzhost34.genap.ca/galaxy/```
  
+While you can run Galaxy jobs without creating an account, features and number of jobs that can be executed at once will be limited. We should therefore create an account.
 
+* On the top menu, click on "User" > "Register"
 
+* Fill the email, password and public name boxes, and click on "Submit"
 
+* Click on "Return to the home page."
+
+* You are now logged in as a Galaxy user. For this exercise, we’ll use subsets of data from the Illumina BodyMap 2.0 project, from human adrenal gland tissues. The sampled reads are paired-end 50bp that map mostly to a 500Kb region of chromosome 19, positions 3-3.5 million (chr19:3000000:3500000). (source: https://usegalaxy.org/u/jeremy/p/galaxy-rna-seq-analysis-exercise)
+
+* Import the following two FASTQ files in your user space. To do so, use Get Data > Upload File from the tool section. You can provide both URLs in the same text box, or do the same job twice.
+    * [https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/files/adrenal_1.fastq)
+    * [https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/files/adrenal_2.fastq)
+
+* For Genome, specify “Human (Home sapiens): hg19”, and then click Execute.
+
+* After it finished to upload (green state), rename the two imported files, for better organization.
+    * From the history column, click on the ```Pen``` icon for the first imported item, and enter the new name “adrenal_1” in the dialog.
+    * Rename the second imported file to “adrenal_2”.
+    * Examine results from the history bar using the ```Eye``` icon.
+
+* Run the tool FastQC: Comprehensive QC for adrenal_1.
+    * To find it, use the search window at the top of the Tools column (left panel).
+    * Execute, then examine results from the history bar using the ```Eye``` icon.
+    * Repeat the same operations for adrenal_2. As a shortcut, you can click on the new file name in our history, then click on the ```Run this job again``` icon and simply change the input file to automatically reuse the same parameters.
+
+* Many tools using FASTQ files in Galaxy require them to be “groomed”, meaning they will be standardized. This will ensure more reliability and consistency to those tools output. To groom our FASTQ files, we will use the tool FASTQ Groomer with default parameters.
+    * When we don’t know which quality score type to provide, we can extract that information from the FastQC report that we already generated. Can you find the information in the FastQC report? (Answer: It’s in Sanger format)
+    * Leave the other options as-is.
+    * Run this for both of our paired-end files, adrenal_1 and adrenal_2.
+
+* You will now trim the reads, to improve the quality of the dataset by removing bad quality bases, clipping adapters and so on. Launch the Trimmomatic tool with default parameters, except:
+    * Give the groomed adrenal_1 file for direction 1, and groomed adrenal_2 for direction 2.
+    * Sliding window size: 4
+    * Average quality required: 30
+
+* Run FastQC again on both paired files, and compare results with pre-trimming FastQC output.
 
 ### All done!
 
