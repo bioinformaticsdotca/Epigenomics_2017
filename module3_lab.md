@@ -35,13 +35,13 @@ This module will cover the basics of Bisulfite-sequencing data analysis includin
 
 ### Getting started
 
-#####  Connect to the Guillimin HPC
+#####  Connect to the Compute Canada cluster
 
 ```
-ssh class99@guillimin.clumeq.ca
+ssh lect99@workshop103.ccs.usherbrooke.ca
 ```
 
-You will be in your home folder. At this step, before continuing, please make sure that you followed the instructions in the section **"The first time you log in"** of the [Guillimin guide](http://bioinformatics-ca.github.io/epigenomic_data_analysis_hpc_2016/.md). If you don't, compute jobs will not execute normally.
+You will be in your home folder. At this step, before continuing, please make sure that you followed the instructions in the section **"The first time you log in"** of the [Compute Canada instructions](https://bioinformaticsdotca.github.io/epigenomics_2017_hpc_2017). If you don't, compute jobs will not execute normally.
 
 ##### Prepare directory for module 3
 
@@ -55,14 +55,14 @@ cd ~/module3
 
 ```
 mkdir data
-cp /gs/project/mugqic/bioinformatics.ca/epigenomics/wgb-seq/data/* data/.
+cp /home/partage/epigenomics/wgb-seq/data/* data/.
 ```
 
 ##### Check the files
-By typing `ls` you should see something similar to this
+By typing `ls data` you should see something similar to this
 
 ```
-[class99@lg-1r17-n02 module3]$ ls data
+[lect99@workshop103 module3]$ ls data
 iPSC_1.1.fastq	iPSC_1.2.fastq	iPSC_2.1.fastq	iPSC_2.2.fastq
 ```
 
@@ -72,74 +72,43 @@ iPSC_1.1.fastq	iPSC_1.2.fastq	iPSC_2.1.fastq	iPSC_2.2.fastq
 We will now process and map the reads using Bismark.
 
 ```
-echo 'module load mugqic/bismark/0.16.1 ; \
-bismark --bowtie2 -n 1 /gs/project/mugqic/bioinformatics.ca/epigenomics/wgb-seq/genome/ \
--1 data/iPSC_1.1.fastq -2 data/iPSC_1.2.fastq' \
-|  qsub -l nodes=1:ppn=4 -d .
+module load mugqic/bismark/0.16.1 
+bismark --bowtie2 -n 1 /home/partage/epigenomics/wgb-seq/genome/ -1 data/iPSC_1.1.fastq -2 data/iPSC_1.2.fastq
 ```
+The `--bowtie2` is to use the mapping algorithm bowtie.
 
 The `-n 1` defines the maximum number of mismatches permitted in the seed.
 
-The `/gs/project/mugqic/bioinformatics.ca/epigenomics/wgb-seq/genome/` specifies the reference genome to use.
+The `/home/partage/epigenomics/wgb-seq/genome/` specifies the reference genome to use.
 
-The `qsub -l nodes=1:ppn=4 -d .` submits the job to the cluster using 1 node, 4 processors and the current directory for output.
+The `-1 data/iPSC_1.1.fastq` specifies the location of read 1. Idem for `-2` which specifies read 2.
 
 For more details, please refer to the Bismark [user guide](http://www.bioinformatics.babraham.ac.uk/projects/bismark/Bismark_User_Guide.pdf).
 
 ##### Check status of your job
 
-```
-watch -d showq -uclass%%
-```
+Bismark first loads the reference genome one chromosome at a time. You should be able to follow progress.
 
-Replace "%%" by your student number.
-
-##### Check files
-
-```
-[class99@lg-1r17-n02 module3]$ ls
-data  iPSC_1.1.fastq_C_to_T.fastq  iPSC_1.2.fastq_G_to_A.fastq	STDIN.e60392282  STDIN.o60392282
-```
+##### Check output messages
 
 *Is this what you expected?*
-
-##### Check the error message
-
-```
-less STDIN.e60392282
-```
-
-Where you replace the file name by your specific error file.
 
 ##### Map (again) using bismark
 
 ```
 rm iPSC_*
-rm STDIN.*
-echo 'module load mugqic/bismark/0.16.1 ; module load mugqic/bowtie2/2.2.4 ; module load mugqic/samtools/1.3 ; \
-bismark --bowtie2 -n 1 /gs/project/mugqic/bioinformatics.ca/epigenomics/wgb-seq/genome/ \
--1 data/iPSC_1.1.fastq -2 data/iPSC_1.2.fastq' \
-| qsub -l nodes=1:ppn=4 -d .
-```
-
-##### Check the files as the are being written
-
-```
-watch -d ls -ltr
+module load mugqic/bismark/0.16.1 ; module load mugqic/bowtie2/2.2.4 ; module load mugqic/samtools/1.3 
+bismark --bowtie2 -n 1 /home/partage/epigenomics/wgb-seq/genome/ -1 data/iPSC_1.1.fastq -2 data/iPSC_1.2.fastq
 ```
 
 ##### Check files
 At the end, you should have something similar to
 
-```
-[class99@lg-1r17-n02 module3]$ ls -ltr
-total 13760
-drwxr-xr-x 2 class99 class      512 Jun 20 16:56 data
--rw------- 1 class99 class     5107 Jun 20 17:21 STDIN.e60392695
--rw-r--r-- 1 class99 class 13964455 Jun 20 17:21 iPSC_1.1_bismark_bt2_pe.bam
--rw-r--r-- 1 class99 class     1862 Jun 20 17:21 iPSC_1.1_bismark_bt2_PE_report.txt
--rw------- 1 class99 class     4405 Jun 20 17:21 STDIN.o60392695
-```
+[lect99@workshop103 module3]$ ls -ltr
+total 13662
+drwxr-xr-x 2 lect03 lect        6 Jun 15 07:12 data
+-rw-r--r-- 1 lect03 lect 13964434 Jun 15 07:36 iPSC_1.1_bismark_bt2_pe.bam
+-rw-r--r-- 1 lect03 lect     1839 Jun 15 07:36 iPSC_1.1_bismark_bt2_PE_report.txt
 
 Let's look at the report
 
@@ -152,27 +121,22 @@ less iPSC_1.1_bismark_bt2_PE_report.txt
 We need to sort the bam file and prepare an index so we will be able to load in IGV. We will use the program `samtools` for this.
 
 ```
-echo 'module load mugqic/samtools/1.3 ; \
-samtools sort iPSC_1.1_bismark_bt2_pe.bam -o iPSC_1.1_bismark_bt2_pe_sorted.bam ; \
-samtools index iPSC_1.1_bismark_bt2_pe_sorted.bam' \
-| qsub -l nodes=1:ppn=1 -d .
+module load mugqic/samtools/1.3 
+samtools sort iPSC_1.1_bismark_bt2_pe.bam -o iPSC_1.1_bismark_bt2_pe_sorted.bam 
+samtools index iPSC_1.1_bismark_bt2_pe_sorted.bam
 ```
 
 ##### Check files
 At the end, you should have something similar to
 
 ```
-[class99@lg-1r17-n02 module3]$ ls -ltr
-total 27136
-drwxr-xr-x 2 class99 class      512 Jun 20 16:56 data
--rw------- 1 class99 class     5107 Jun 20 17:21 STDIN.e60392695
--rw-r--r-- 1 class99 class 13964455 Jun 20 17:21 iPSC_1.1_bismark_bt2_pe.bam
--rw-r--r-- 1 class99 class     1862 Jun 20 17:21 iPSC_1.1_bismark_bt2_PE_report.txt
--rw------- 1 class99 class     4405 Jun 20 17:21 STDIN.o60392695
--rw------- 1 class99 class       61 Jun 20 17:25 STDIN.e60393634
--rw-r--r-- 1 class99 class 11653618 Jun 20 17:25 iPSC_1.1_bismark_bt2_pe_sorted.bam
--rw------- 1 class99 class      846 Jun 20 17:25 STDIN.o60393634
--rw-r--r-- 1 class99 class  1967480 Jun 20 17:25 iPSC_1.1_bismark_bt2_pe_sorted.bam.bai
+[lect99@workshop103 module3]$ ls -ltr
+total 25471
+drwxr-xr-x 2 lect03 lect        6 Jun 15 07:12 data
+-rw-r--r-- 1 lect03 lect 13964434 Jun 15 07:36 iPSC_1.1_bismark_bt2_pe.bam
+-rw-r--r-- 1 lect03 lect     1839 Jun 15 07:36 iPSC_1.1_bismark_bt2_PE_report.txt
+-rw-r--r-- 1 lect03 lect 11653598 Jun 15 07:39 iPSC_1.1_bismark_bt2_pe_sorted.bam
+-rw-r--r-- 1 lect03 lect  1967480 Jun 15 07:39 iPSC_1.1_bismark_bt2_pe_sorted.bam.bai
 ```
 
 ##### Copy files to your local computer to view in IGV
@@ -180,7 +144,7 @@ drwxr-xr-x 2 class99 class      512 Jun 20 16:56 data
 Using a different terminal window that is not connected to the server (if you are using Mac/Linux) or WinSCP (if you are using Windows), retrieve the `iPSC_1.1_bismark_bt2_pe_sorted.bam` and `iPSC_1.1_bismark_bt2_pe_sorted.bam.bai`
 
 ```
-scp class%%@guillimin.clumeq.ca:/home/class%%/module3/iPSC_1.1_bismark_bt2_pe_sorted.bam* .
+scp lect%%@workshop103.ccs.usherbrooke.ca:/home/lect%%/module3/iPSC_1.1_bismark_bt2_pe_sorted.bam* .
 ```
 
 Where you need to replace the two places with "%%" by your student number.
@@ -214,43 +178,36 @@ You should see something like
 ##### Map using bismark
 
 ```
-echo 'module load mugqic/bismark/0.16.1 ; module load mugqic/bowtie2/2.2.4 ; module load mugqic/samtools/1.3 ; \
-bismark --bowtie2 -n 1 /gs/project/mugqic/bioinformatics.ca/epigenomics/wgb-seq/genome/ \
--1 data/iPSC_2.1.fastq -2 data/iPSC_2.2.fastq' | qsub -l nodes=1:ppn=4 -d .
+module load mugqic/bismark/0.16.1 ; module load mugqic/bowtie2/2.2.4 ; module load mugqic/samtools/1.3 
+bismark --bowtie2 -n 1 /home/partage/epigenomics/wgb-seq/genome/ -1 data/iPSC_2.1.fastq -2 data/iPSC_2.2.fastq
 ```
+
+*Did you need to repeat the module load commands?*
+
+*And what context would you need to repeat them?*
 
 ##### Prepare files for IGV
 
 ```
-echo 'module load mugqic/samtools/1.3 ; \
-samtools sort iPSC_2.1_bismark_bt2_pe.bam -o iPSC_2.1_bismark_bt2_pe_sorted.bam ; \
-samtools index iPSC_2.1_bismark_bt2_pe_sorted.bam' \
-| qsub -l nodes=1:ppn=1 -d .
+samtools sort iPSC_2.1_bismark_bt2_pe.bam -o iPSC_2.1_bismark_bt2_pe_sorted.bam 
+samtools index iPSC_2.1_bismark_bt2_pe_sorted.bam
 ```
 
 ##### Check files
 At this point you should have something like
 
 ```
-[class99@lg-1r17-n02 module3]$ ls -ltr
-total 59872
-drwxr-xr-x 2 class99 class      512 Jun 20 16:56 data
--rw------- 1 class99 class     5107 Jun 20 17:21 STDIN.e60392695
--rw-r--r-- 1 class99 class 13964455 Jun 20 17:21 iPSC_1.1_bismark_bt2_pe.bam
--rw-r--r-- 1 class99 class     1862 Jun 20 17:21 iPSC_1.1_bismark_bt2_PE_report.txt
--rw------- 1 class99 class     4405 Jun 20 17:21 STDIN.o60392695
--rw------- 1 class99 class       61 Jun 20 17:25 STDIN.e60393634
--rw-r--r-- 1 class99 class 11653618 Jun 20 17:25 iPSC_1.1_bismark_bt2_pe_sorted.bam
--rw------- 1 class99 class      846 Jun 20 17:25 STDIN.o60393634
--rw-r--r-- 1 class99 class  1967480 Jun 20 17:25 iPSC_1.1_bismark_bt2_pe_sorted.bam.bai
--rw------- 1 class99 class     4404 Jun 20 17:36 STDIN.o60394706
--rw------- 1 class99 class     5111 Jun 20 17:36 STDIN.e60394706
--rw-r--r-- 1 class99 class 17226651 Jun 20 17:36 iPSC_2.1_bismark_bt2_pe.bam
--rw-r--r-- 1 class99 class     1862 Jun 20 17:36 iPSC_2.1_bismark_bt2_PE_report.txt
--rw------- 1 class99 class       61 Jun 20 17:51 STDIN.e60397285
--rw------- 1 class99 class      846 Jun 20 17:51 STDIN.o60397285
--rw-r--r-- 1 class99 class 14046478 Jun 20 17:51 iPSC_2.1_bismark_bt2_pe_sorted.bam
--rw-r--r-- 1 class99 class  2064608 Jun 20 17:51 iPSC_2.1_bismark_bt2_pe_sorted.bam.bai
+[lect99@workshop103 module3]$ ls -ltr
+total 56553
+drwxr-xr-x 2 lect03 lect        6 Jun 15 07:12 data
+-rw-r--r-- 1 lect03 lect 13964434 Jun 15 07:36 iPSC_1.1_bismark_bt2_pe.bam
+-rw-r--r-- 1 lect03 lect     1839 Jun 15 07:36 iPSC_1.1_bismark_bt2_PE_report.txt
+-rw-r--r-- 1 lect03 lect 11653598 Jun 15 07:39 iPSC_1.1_bismark_bt2_pe_sorted.bam
+-rw-r--r-- 1 lect03 lect  1967480 Jun 15 07:39 iPSC_1.1_bismark_bt2_pe_sorted.bam.bai
+-rw-r--r-- 1 lect03 lect 17226630 Jun 15 07:52 iPSC_2.1_bismark_bt2_pe.bam
+-rw-r--r-- 1 lect03 lect     1839 Jun 15 07:52 iPSC_2.1_bismark_bt2_PE_report.txt
+-rw-r--r-- 1 lect03 lect 14046458 Jun 15 07:53 iPSC_2.1_bismark_bt2_pe_sorted.bam
+-rw-r--r-- 1 lect03 lect  2064608 Jun 15 07:53 iPSC_2.1_bismark_bt2_pe_sorted.bam.bai
 ```
 
 ### Generate methylation profiles from the bam files
@@ -258,35 +215,50 @@ drwxr-xr-x 2 class99 class      512 Jun 20 16:56 data
 So far we have only mapped the reads using bismark. We can now generate methylation profiles using the following command
 
 ```
-echo 'module load mugqic/bismark/0.16.1 ; module load mugqic/samtools/1.3 ; \
-bismark_methylation_extractor --bedGraph iPSC_1.1_bismark_bt2_pe.bam' \
-| qsub -l nodes=1:ppn=1 -d .
+bismark_methylation_extractor --bedGraph iPSC_1.1_bismark_bt2_pe.bam
 ```
 
 Do the same for the other replicate
 
 ```
-echo 'module load mugqic/bismark/0.16.1 ; module load mugqic/samtools/1.3 ; \
-bismark_methylation_extractor --bedGraph iPSC_2.1_bismark_bt2_pe.bam' \
-| qsub -l nodes=1:ppn=1 -d .
+bismark_methylation_extractor --bedGraph iPSC_2.1_bismark_bt2_pe.bam
 ```
 
 ##### Check files
 At this point you should have something like
 
 ```
-[class99@lg-1r17-n02 module3]$ ls
-CHG_OB_iPSC_1.1_bismark_bt2_pe.txt  CpG_OT_iPSC_2.1_bismark_bt2_pe.txt		  iPSC_2.1_bismark_bt2_pe.bedGraph.gz		STDIN.e60397907
-CHG_OB_iPSC_2.1_bismark_bt2_pe.txt  data					  iPSC_2.1_bismark_bt2_pe.bismark.cov.gz	STDIN.e60397937
-CHG_OT_iPSC_1.1_bismark_bt2_pe.txt  iPSC_1.1_bismark_bt2_pe.bam			  iPSC_2.1_bismark_bt2_pe.M-bias.txt		STDIN.e60398115
-CHG_OT_iPSC_2.1_bismark_bt2_pe.txt  iPSC_1.1_bismark_bt2_pe.bedGraph.gz		  iPSC_2.1_bismark_bt2_PE_report.txt		STDIN.o60392695
-CHH_OB_iPSC_1.1_bismark_bt2_pe.txt  iPSC_1.1_bismark_bt2_pe.bismark.cov.gz	  iPSC_2.1_bismark_bt2_pe_sorted.bam		STDIN.o60393634
-CHH_OB_iPSC_2.1_bismark_bt2_pe.txt  iPSC_1.1_bismark_bt2_pe.M-bias.txt		  iPSC_2.1_bismark_bt2_pe_sorted.bam.bai	STDIN.o60394706
-CHH_OT_iPSC_1.1_bismark_bt2_pe.txt  iPSC_1.1_bismark_bt2_PE_report.txt		  iPSC_2.1_bismark_bt2_pe_splitting_report.txt	STDIN.o60397285
-CHH_OT_iPSC_2.1_bismark_bt2_pe.txt  iPSC_1.1_bismark_bt2_pe_sorted.bam		  STDIN.e60392695				STDIN.o60397907
-CpG_OB_iPSC_1.1_bismark_bt2_pe.txt  iPSC_1.1_bismark_bt2_pe_sorted.bam.bai	  STDIN.e60393634				STDIN.o60397937
-CpG_OB_iPSC_2.1_bismark_bt2_pe.txt  iPSC_1.1_bismark_bt2_pe_splitting_report.txt  STDIN.e60394706				STDIN.o60398115
-CpG_OT_iPSC_1.1_bismark_bt2_pe.txt  iPSC_2.1_bismark_bt2_pe.bam			  STDIN.e60397285
+[lect03@workshop103 module3]$ ls -ltr
+total 103111
+drwxr-xr-x 2 lect03 lect        6 Jun 15 07:12 data
+-rw-r--r-- 1 lect03 lect 13964434 Jun 15 07:36 iPSC_1.1_bismark_bt2_pe.bam
+-rw-r--r-- 1 lect03 lect     1839 Jun 15 07:36 iPSC_1.1_bismark_bt2_PE_report.txt
+-rw-r--r-- 1 lect03 lect 11653598 Jun 15 07:39 iPSC_1.1_bismark_bt2_pe_sorted.bam
+-rw-r--r-- 1 lect03 lect  1967480 Jun 15 07:39 iPSC_1.1_bismark_bt2_pe_sorted.bam.bai
+-rw-r--r-- 1 lect03 lect 17226630 Jun 15 07:52 iPSC_2.1_bismark_bt2_pe.bam
+-rw-r--r-- 1 lect03 lect     1839 Jun 15 07:52 iPSC_2.1_bismark_bt2_PE_report.txt
+-rw-r--r-- 1 lect03 lect 14046458 Jun 15 07:53 iPSC_2.1_bismark_bt2_pe_sorted.bam
+-rw-r--r-- 1 lect03 lect  2064608 Jun 15 07:53 iPSC_2.1_bismark_bt2_pe_sorted.bam.bai
+-rw-r--r-- 1 lect03 lect  3317542 Jun 15 07:54 CpG_OT_iPSC_1.1_bismark_bt2_pe.txt
+-rw-r--r-- 1 lect03 lect  3233404 Jun 15 07:54 CpG_OB_iPSC_1.1_bismark_bt2_pe.txt
+-rw-r--r-- 1 lect03 lect 47352591 Jun 15 07:54 CHH_OT_iPSC_1.1_bismark_bt2_pe.txt
+-rw-r--r-- 1 lect03 lect 45655164 Jun 15 07:54 CHH_OB_iPSC_1.1_bismark_bt2_pe.txt
+-rw-r--r-- 1 lect03 lect 15632135 Jun 15 07:54 CHG_OT_iPSC_1.1_bismark_bt2_pe.txt
+-rw-r--r-- 1 lect03 lect 14933671 Jun 15 07:54 CHG_OB_iPSC_1.1_bismark_bt2_pe.txt
+-rw-r--r-- 1 lect03 lect      827 Jun 15 07:54 iPSC_1.1_bismark_bt2_pe_splitting_report.txt
+-rw-r--r-- 1 lect03 lect    13068 Jun 15 07:54 iPSC_1.1_bismark_bt2_pe.M-bias.txt
+-rw-r--r-- 1 lect03 lect   366080 Jun 15 07:54 iPSC_1.1_bismark_bt2_pe.bismark.cov.gz
+-rw-r--r-- 1 lect03 lect   388554 Jun 15 07:54 iPSC_1.1_bismark_bt2_pe.bedGraph.gz
+-rw-r--r-- 1 lect03 lect  2912404 Jun 15 07:57 CpG_OT_iPSC_2.1_bismark_bt2_pe.txt
+-rw-r--r-- 1 lect03 lect  2778922 Jun 15 07:57 CpG_OB_iPSC_2.1_bismark_bt2_pe.txt
+-rw-r--r-- 1 lect03 lect 53931897 Jun 15 07:57 CHH_OT_iPSC_2.1_bismark_bt2_pe.txt
+-rw-r--r-- 1 lect03 lect 52417972 Jun 15 07:57 CHH_OB_iPSC_2.1_bismark_bt2_pe.txt
+-rw-r--r-- 1 lect03 lect 15629482 Jun 15 07:57 CHG_OT_iPSC_2.1_bismark_bt2_pe.txt
+-rw-r--r-- 1 lect03 lect 15044910 Jun 15 07:57 CHG_OB_iPSC_2.1_bismark_bt2_pe.txt
+-rw-r--r-- 1 lect03 lect      828 Jun 15 07:58 iPSC_2.1_bismark_bt2_pe_splitting_report.txt
+-rw-r--r-- 1 lect03 lect    13234 Jun 15 07:58 iPSC_2.1_bismark_bt2_pe.M-bias.txt
+-rw-r--r-- 1 lect03 lect   340966 Jun 15 07:58 iPSC_2.1_bismark_bt2_pe.bedGraph.gz
+-rw-r--r-- 1 lect03 lect   322840 Jun 15 07:58 iPSC_2.1_bismark_bt2_pe.bismark.cov.gz
 ```
 
 ##### Uncompress the bedGraph files
@@ -300,13 +272,13 @@ gunzip iPSC_2.1_bismark_bt2_pe.bedGraph.gz
 Using a different terminal window that is not connected to the server (if you are using Mac/Linux) or WinSCP (if you are using Windows), retrieve the `iPSC_2.1_bismark_bt2_pe_sorted.bam` and `iPSC_2.1_bismark_bt2_pe_sorted.bam.bai`
 
 ```
-scp class%%@guillimin.clumeq.ca:/home/class%%/module3/iPSC_2.1_bismark_bt2_pe_sorted.bam* .
+scp lect%%@workshop103.ccs.usherbrooke.ca:/home/lect%%/module3/iPSC_2.1_bismark_bt2_pe_sorted.bam* .
 ```
 
 Also transfer the bedGraphs
 
 ```
-scp class%%@guillimin.clumeq.ca:/home/class%%/module3/*bedGraph* .
+scp lect%%@workshop103.ccs.usherbrooke.ca:/home/lect%%/module3/*bedGraph* .
 ```
 
 Where you need to replace the two places with "%%" by your student number.
