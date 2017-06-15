@@ -190,21 +190,28 @@ samtools index H3K27ac.H1.sorted.dupsMarked.bam
 ```
 
 Now we ask some interesting questions:
+
 How may H3K27ac reads fall into promoter of a gene? (TSS+/-2Kb)
 
 TCAIM gene, location chr3:44,379,611-44,401,294 
+
 TSS+/-2Kb:
+
 chr3:44377611-44381611
 ```
 samtools view -q 5 -F 1028 H3K27ac.H1.sorted.dupsMarked.bam chr3:44377611-44381611 | wc -l
 ```
 431
-We just attached region's coordinates at the end of the "samtools view"command
+
+We just attached region's coordinates at the end of the "samtools view"command.
 There is definetely some ChIP-seq signal.
 
 Another gene just upstream 
+
 TOPAZ1, location chr3:44,283,378-44,373,590 
+
 TSS+/-2Kb:
+
 chr3:44281378-44285378
 ```
 samtools view -q 5 -F 1028 H3K27ac.H1.sorted.dupsMarked.bam chr3:44281378-44285378 | wc -l
@@ -222,9 +229,13 @@ samtools view -q 5 -F 1028 H3K27ac.H1.sorted.dupsMarked.bam chr3:44261378-442653
 26
 
 We can define a file containing locations (e.g. regions)
+
 chr3:44377611-44381611
+
 chr3:44281378-44285378
+
 chr3:44271378-44275378
+
 chr3:44261378-44265378
 
 and see number of reads falling into all those regions
