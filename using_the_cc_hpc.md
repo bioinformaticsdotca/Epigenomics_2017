@@ -75,7 +75,7 @@ You can specify a bash script to launch multiple compute jobs directly from the 
 #!/bin/bash
 
 module load mugqic/bowtie2/2.2.4 mugqic/bismark/0.17.0
-perl bismark_genome_preparation --bowtie2 --verbose .
+bismark_genome_preparation --bowtie2 --verbose .
 ```
 
 Here, we load the bowtie2 and bismark modules, and then launch the ```bismark_genome_preparation``` command.
