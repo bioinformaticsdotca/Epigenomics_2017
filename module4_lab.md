@@ -261,12 +261,6 @@ We will now explore and learn how to user the Galaxy interface.
 
 Using a web browser, open the following URL: ```http://workshop103-galaxy.vzhost34.genap.ca/galaxy/```
  
-Create an ac
-
-
-#### This is only the beginning...
- 
-
 
 
 
