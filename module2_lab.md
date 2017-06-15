@@ -217,7 +217,9 @@ chr3:44281378-44285378
 samtools view -q 5 -F 1028 H3K27ac.H1.sorted.dupsMarked.bam chr3:44281378-44285378 | wc -l
 ```
 30
-Much less reads...
+
+Much less reads in the promoter of this gene...
+
 ... and some random 4Kb regions
 ```
 samtools view -q 5 -F 1028 H3K27ac.H1.sorted.dupsMarked.bam chr3:44271378-44275378 | wc -l
@@ -227,6 +229,8 @@ samtools view -q 5 -F 1028 H3K27ac.H1.sorted.dupsMarked.bam chr3:44271378-442753
 samtools view -q 5 -F 1028 H3K27ac.H1.sorted.dupsMarked.bam chr3:44261378-44265378 | wc -l
 ```
 26
+
+Thus we can conclude that we see two genes - one has a strong H3K27ac signal and another does not.
 
 We can define a file containing locations (e.g. regions)
 
