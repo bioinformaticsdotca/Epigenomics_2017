@@ -5,14 +5,13 @@ title: Epigenomics Lab 1
 header1: Workshop Pages for Students
 header2: Epigenomic Data Analysis 2017 Module 1 Lab
 image: /site_images/CBW_Epigenome-data_icon.jpg
-home: https://bioinformaticsdotca.github.io/high-throughput_biology_2017
+home: https://bioinformaticsdotca.github.io/epigenomics_2017
 ---
 
 # Module 1: Introduction to ChIP sequencing & analysis 
 
 ## Important notes:
-* Please refer to the following guide for instructions on how to connect to the workshop server and required modules [Using the Guillimin HPC](http://bioinformatics-ca.github.io/epigenomic_data_analysis_hpc_2016/)
-* The instructions in this tutorial will suppose you are in a Linux/Max environment. The equivalent tools in Windows are provided in the [Using the Guillimin HPC](http://bioinformatics-ca.github.io/epigenomic_data_analysis_hpc_2016/).
+* Please refer to the following guide for instructions on how to connect to the workshop server and required modules [Using Compute Canada](http://bioinformaticsdotca.github.io/epigenomics_2017_hpc_2017)  
 * The user **class99** is provided here as an example. You should replace it by the username that was assigned to you at the beginning of the workshop.
 
 
