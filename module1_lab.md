@@ -5,7 +5,7 @@ title: Epigenomics Lab 1
 header1: Workshop Pages for Students
 header2: Epigenomic Data Analysis 2017 Module 1 Lab
 image: /site_images/CBW_Epigenome-data_icon.jpg
-home: https://bioinformaticsdotca.github.io/high-throughput_biology_2017
+home: https://bioinformaticsdotca.github.io/epigenomics_2017
 ---
 
 # Module 1: Introduction to ChIP sequencing & analysis 
