@@ -244,10 +244,13 @@ chr3:44261378-44265378
 and see number of reads falling into all those regions
 
 13. Visualization @ UCSC, generating WIG file
+
 ```
 java -jar -Xmx2G $bin/BAM2WIG.jar -bamFile H3K27ac.H1.sorted.dupsMarked.bam -out $out -q 5 -F 1028 -cs -x 150 -samtools /cvmfs/soft.mugqic/CentOS6/software/samtools/samtools-0.1.19/samtools
 ```
+
 what you see on the screen:
+
 ```
 [lect02@workshop103 H1test]$ java -jar -Xmx2G $bin/BAM2WIG.jar -bamFile H3K27ac.H1.sorted.dupsMarked.bam -out /home/partage/epigenomics/chip-seq/H1test -q 5 -F 1028 -cs -x 150 -samtools /cvmfs/soft.mugqic/CentOS6/software/samtools/samtools-0.1.19/samtools
 **** v. 0.9.8
@@ -267,6 +270,7 @@ Reads: total=25902
 ```
 
 14. Check the WIG file
+
 ```
 more H3K27ac.H1.sorted.dupsMarked.q5.F1028.SET_150.wig.gz
 ```
