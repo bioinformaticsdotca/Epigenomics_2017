@@ -152,7 +152,7 @@ wget http://epigenomesportal.ca/tracks/ENCODE/hg19/26900.ENCODE.H1-hESC_YY1_Pk__
 
 ```
 module load mugqic/ucsc/20140212
-bigBedToBed peakSeq.optimal.wgEncodeHaibTfbsH1hescYy1c20Pcr1xAlnRep0_vs_wgEncodeHaibTfbsH1hescControlPcr1xAlnRep0.bb peakSeq.optimal.wgEncodeHaibTfbsH1hescYy1c20Pcr1xAlnRep0_vs_wgEncodeHaibTfbsH1hescControlPcr1xAlnRep0.bed
+bigBedToBed 26900.ENCODE.H1-hESC_YY1_Pk__HudsonAlpha_.YY1.peak_calls.bigBed 26900.ENCODE.H1-hESC_YY1_Pk__HudsonAlpha_.YY1.peak_calls.bed
 ```
 
 * Prepare an output directory for HOMER, and a genome preparsed motifs directory.
@@ -169,8 +169,7 @@ mkdir preparsed
 ```
 module load mugqic/homer/4.7
 module load mugqic/weblogo/2.8.2
-findMotifsGenome.pl peakSeq.optimal.wgEncodeHaibTfbsH1hescYy1c20Pcr1xAlnRep0_vs_wgEncodeHaibTfbsH1hescControlPcr1xAlnRep0.bed \
-hg19 output -preparsedDir preparsed -p 2 -S 15
+findMotifsGenome.pl 26900.ENCODE.H1-hESC_YY1_Pk__HudsonAlpha_.YY1.peak_calls.bed hg19 output -preparsedDir preparsed -p 2 -S 15
 ```
 
 * HOMER takes a while to execute for a whole genome track like this. Expect this job to take about 30 minutes of runtime, with the current 2 cores setup. In the meantime, we will explore the GO terms enrichment tool GREAT.
