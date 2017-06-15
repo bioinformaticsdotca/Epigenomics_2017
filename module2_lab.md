@@ -146,7 +146,7 @@ Useful "samtools" option
 ```
 samtools view -X  H3K27ac.H1.sorted.dupsMarked.bam | more
 ```
-shows second field ("SAM flag") in a user readable format.
+shows second field ("SAM flag") in a human readable format.
 
 10. Lets count reads aligned to (+) and (-) strands
 ```
@@ -169,7 +169,8 @@ check the output
 more H3K27ac.H1.sorted.dupsMarked.bam.flagstat
 ```
 you should see alignments file details:
-
+```
+[lect02@workshop103 H1test]$ less H3K27ac.H1.sorted.dupsMarked.bam.flagstat | more
 49990 + 0 in total (QC-passed reads + QC-failed reads)
 1854 + 0 duplicates
 31555 + 0 mapped (63.12%:-nan%)
@@ -181,10 +182,75 @@ you should see alignments file details:
 0 + 0 singletons (-nan%:-nan%)
 0 + 0 with mate mapped to a different chr
 0 + 0 with mate mapped to a different chr (mapQ>=5)
+```
 
+12. Indenxing BAM file
+```
+samtools index H3K27ac.H1.sorted.dupsMarked.bam
+```
 
+Now we ask some interesting questions:
+How may H3K27ac reads fall into promoter of a gene? (TSS+/-2Kb)
 
+TCAIM gene, location chr3:44,379,611-44,401,294 
+TSS+/-2Kb:
+chr3:44377611-44381611
+```
+samtools view -q 5 -F 1028 H3K27ac.H1.sorted.dupsMarked.bam chr3:44377611-44381611 | wc -l
+```
+431
+We just attached region's coordinates at the end of the "samtools view"command
+There is definetely some ChIP-seq signal.
 
+Another gene just upstream 
+TOPAZ1, location chr3:44,283,378-44,373,590 
+TSS+/-2Kb:
+chr3:44281378-44285378
+```
+samtools view -q 5 -F 1028 H3K27ac.H1.sorted.dupsMarked.bam chr3:44281378-44285378 | wc -l
+```
+30
+Much less reads...
+... and some random 4Kb regions
+```
+samtools view -q 5 -F 1028 H3K27ac.H1.sorted.dupsMarked.bam chr3:44271378-44275378 | wc -l
+```
+10
+```
+samtools view -q 5 -F 1028 H3K27ac.H1.sorted.dupsMarked.bam chr3:44261378-44265378 | wc -l
+```
+26
+
+We can define a file containing locations (e.g. regions)
+chr3:44377611-44381611
+chr3:44281378-44285378
+chr3:44271378-44275378
+chr3:44261378-44265378
+
+and see number of reads falling into all those regions
+
+13. Visualization @ UCSC, generating WIG file
+```
+java -jar -Xmx2G $bin/BAM2WIG.jar -bamFile H3K27ac.H1.sorted.dupsMarked.bam -out $out -q 5 -F 1028 -cs -x 150 -samtools /cvmfs/soft.mugqic/CentOS6/software/samtools/samtools-0.1.19/samtools
+```
+what you see on the screen:
+```
+[lect02@workshop103 H1test]$ java -jar -Xmx2G $bin/BAM2WIG.jar -bamFile H3K27ac.H1.sorted.dupsMarked.bam -out /home/partage/epigenomics/chip-seq/H1test -q 5 -F 1028 -cs -x 150 -samtools /cvmfs/soft.mugqic/CentOS6/software/samtools/samtools-0.1.19/samtools
+**** v. 0.9.8
+$Id: BAM2WIG.java 120350 2016-06-04 01:27:29Z mbilenky $
+Reading BAM file: H3K27ac.H1.sorted.dupsMarked.bam
+Output WIG file into: /home/partage/epigenomics/chip-seq/H1test
+Reading the header...
+/cvmfs/soft.mugqic/CentOS6/software/samtools/samtools-0.1.19/samtools view -H -q 5 -F 1028 H3K27ac.H1.sorted.dupsMarked.bam
+Read lengths for 93 chromosomes
+ChIP-seq, SET, read extension xset=150
+Start analysis...
+
+Parsing H3K27ac.H1.sorted.dupsMarked.bam
+/cvmfs/soft.mugqic/CentOS6/software/samtools/samtools-0.1.19/samtools view -X -q 5 -F 1028 H3K27ac.H1.sorted.dupsMarked.bam
+.
+Reads: total=25902
+```
 
 
 
