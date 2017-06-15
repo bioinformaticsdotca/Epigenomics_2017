@@ -20,20 +20,17 @@ you can see what variables we defined by
 ```
 less /home/partage/epigenomics/chip-seq/setup.sh
 ```
-
-```variable
-cd /cvmfs/ref.mugqic/genomes/species/
-ls -l
+2. Create your personal working directory
 ```
-
-![file list](https://github.com/bioinformatics-ca/bioinformatics-ca.github.io/blob/master/2016_workshops/epigenomics/img/img1.png?raw=true)
-
+out=/home/partage/epigenomics/chip-seq/H1test
+mkdir -p $out
 ```
-cd ./Homo_sapiens.GRCh37/genome
-ls -l
-```
+We will perform alignment of small fastq file (H1 cells, H3K27ac ChIP-seq) to the human reference hg19
 
-*Which are the genome fasta file and index?*
+3. Human genome is stored in the variable
+```
+less $hg19/Homo_sapiens.hg19.fa | more
+```
 
 
 ## Using BWA
