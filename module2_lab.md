@@ -12,19 +12,16 @@ home: https://bioinformaticsdotca.github.io/high-throughput_biology_2017
 
 By Misha Bilenky
 
-## Reference Genomes
-
-Genomes for different species can be found at:
-
-[NCBI](ftp://ftp.ncbi.nih.gov/genomes)
-
-or
-
-[UCSC](http://hgdownload.cse.ucsc.edu/downloads.html)
-
-On **Guillimin**
-
+1. Set up some useful variables etc...
 ```
+source /home/partage/epigenomics/chip-seq/setup.sh
+```
+you can see what variables we defined by
+```
+less /home/partage/epigenomics/chip-seq/setup.sh
+```
+
+```variable
 cd /cvmfs/ref.mugqic/genomes/species/
 ls -l
 ```
