@@ -93,6 +93,106 @@ samtools sort H3K27ac.H1.bam H3K27ac.H1.sorted
 ```
 NOTE: if we use option '-n' in "samtools sort" file will be name sorted. Useful for pair-end data; then two reads from the pair are next to each other in the file.
 
+Check:
+``` ls -lh
+``
+You see that "BAM" file is ~4-5 times smaller than "SAM"
+
+7. Lets look into alignment file:
+File has a header
+```
+samtools view -H H3K27ac.H1.sorted.bam | more
+```
+and the aliggned/unuligned reads information
+```
+samtools view H3K27ac.H1.sorted.bam | head
+```
+[all fields we discussed]
+
+8. Using BAM file we can obtain useful informtion just using "samtools"
+```
+samtools view H3K27ac.H1.sorted.bam | wc -l
+```
+49990
+```
+samtools view -F 4 H3K27ac.H1.sorted.bam | wc -l
+```
+31555
+```
+samtools view -F 4 -q 5 H3K27ac.H1.sorted.bam | wc -l
+```
+27735
+```
+samtools view -F 4 -q 5 H3K27ac.H1.sorted.bam | cut -f10 | grep TATA | wc -l
+```
+2178
+```
+samtools view -F 4 -q 5 H3K27ac.H1.sorted.bam | cut -f10 | grep TATAA | wc -l
+```
+718
+
+9. Marking duplicated reads
+```
+java -jar $picard/MarkDuplicates.jar I=H3K27ac.H1.sorted.bam O=H3K27ac.H1.sorted.dupsMarked.bam M=dups AS=true VALIDATION_STRINGENCY=LENIENT QUIET=true
+```
+
+```
+samtools view -F 1028 -q 5 H3K27ac.H1.sorted.dupsMarked.bam | wc -l
+```
+25902
+
+Useful "samtools" option
+```
+samtools view -X  H3K27ac.H1.sorted.dupsMarked.bam | more
+```
+shows second field ("SAM flag") in a user readable format.
+
+10. Lets count reads aligned to (+) and (-) strands
+```
+samtools view -X -F 20 H3K27ac.H1.sorted.dupsMarked.bam | wc -l
+```
+15995
+```
+samtools view -X -f16 H3K27ac.H1.sorted.dupsMarked.bam | wc -l
+```
+15560
+
+Looks ver reasonable: numbers of (+) and (-) reads are very close
+
+11. BAM file statistics:
+```
+samtools flagstat H3K27ac.H1.sorted.dupsMarked.bam > H3K27ac.H1.sorted.dupsMarked.bam.flagstat
+```
+check the output
+```
+more H3K27ac.H1.sorted.dupsMarked.bam.flagstat
+```
+you should see alignments file details:
+
+49990 + 0 in total (QC-passed reads + QC-failed reads)
+1854 + 0 duplicates
+31555 + 0 mapped (63.12%:-nan%)
+0 + 0 paired in sequencing
+0 + 0 read1
+0 + 0 read2
+0 + 0 properly paired (-nan%:-nan%)
+0 + 0 with itself and mate mapped
+0 + 0 singletons (-nan%:-nan%)
+0 + 0 with mate mapped to a different chr
+0 + 0 with mate mapped to a different chr (mapQ>=5)
+
+
+
+
+
+
+
+
+
+
+
+
+
 /gs/project/mugqic/bioinformatics.ca/epigenomics/chip-seq/H1/data/H3K27ac/H3K27ac.H1.fastq.gz
 ``` 
 
