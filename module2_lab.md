@@ -81,6 +81,17 @@ ls -l
 less H3K27ac.H1.sam
 ```
 
+6. Now using "samtools" to manipulate SAM file
+
+Convert into binary BAM file:
+```
+samtools view -Sb H3K27ac.H1.sam > H3K27ac.H1.bam
+```
+Position sort:
+```
+samtools sort H3K27ac.H1.bam H3K27ac.H1.sorted
+```
+NOTE: if we use option '-n' in "samtools sort" file will be name sorted. Useful for pair-end data; then two reads from the pair are next to each other in the file.
 
 /gs/project/mugqic/bioinformatics.ca/epigenomics/chip-seq/H1/data/H3K27ac/H3K27ac.H1.fastq.gz
 ``` 
