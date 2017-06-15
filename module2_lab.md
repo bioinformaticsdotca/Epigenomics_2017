@@ -1,3 +1,4 @@
+
 ---
 layout: tutorial_page
 permalink: /epigenomics_2017_module2_lab
@@ -21,43 +22,67 @@ you can see what variables we defined by
 less /home/partage/epigenomics/chip-seq/setup.sh
 ```
 2. Create your personal working directory
+[for example i create my own working spase:
 ```
 out=/home/partage/epigenomics/chip-seq/H1test
 mkdir -p $out
+cd $out
 ```
 We will perform alignment of small fastq file (H1 cells, H3K27ac ChIP-seq) to the human reference hg19
+
+Fastq file is located in "/home/partage/epigenomics/chip-seq/H1/data/H3K27ac"
+```
+less $H1data/H3K27ac/H3K27ac.H1.fastq.gz
+```
+It is a very small region of genome on chr3
+~50K reads.
+
+```
+less $H1data/H3K27ac/H3K27ac.H1.fastq.gz
+```
 
 3. Human genome is stored in the variable
 ```
 less $hg19/Homo_sapiens.hg19.fa | more
 ```
 
-
-## Using BWA
-
-BWA executable is installed for you
-
-Let's define a variable
-
+4. BWA alignments.
+Lets check that we have bwa installed
 ```
-BWA=/cvmfs/soft.mugqic/CentOS6/software/bwa/bwa-0.7.12/bwa
+which bwa
+bwa
 ```
 
-Try to run $BWA without parameters
+Run first step, "bwa aln"
+```
+bwa aln $hg19/Homo_sapiens.hg19.fa $H1data/H3K27ac/H3K27ac.H1.fastq.gz > $out/H3K27ac.H1.sai
+```
 
-*What happens?*
+# what we see on the screen
+[lect02@workshop103 H1test]$ bwa aln $hg19/Homo_sapiens.hg19.fa $H1data/H3K27ac/H3K27ac.H1.fastq.gz > $out/H3K27ac.H1.sai
+[bwa_aln] 17bp reads: max_diff = 2
+[bwa_aln] 38bp reads: max_diff = 3
+[bwa_aln] 64bp reads: max_diff = 4
+[bwa_aln] 93bp reads: max_diff = 5
+[bwa_aln] 124bp reads: max_diff = 6
+[bwa_aln] 157bp reads: max_diff = 7
+[bwa_aln] 190bp reads: max_diff = 8
+[bwa_aln] 225bp reads: max_diff = 9
+[bwa_aln_core] calculate SA coordinate... 16.38 sec
+[bwa_aln_core] write to the disk... 0.01 sec
+[bwa_aln_core] 49990 sequences have been processed.
+[main] Version: 0.7.12-r1039
+[main] CMD: /cvmfs/soft.mugqic/CentOS6/software/bwa/bwa-0.7.12/bwa aln /cvmfs/ref.mugqic/genomes/species/Homo_sapiens.hg19/genome/bwa_index//Homo_sapiens.hg19.fa /home/partage/epigenomics/chip-seq/H1/data//H3K27ac/H3K27ac.H1.fastq.gz
+[main] Real time: 37.272 sec; CPU: 27.768 sec
 
-### Alignment Example
 
-Toy example:
+small delay at the start as genome was beeing loaded...
 
- * 49990 reads
- 
- * 1.7M file size
- 
- located at:
- 
- ```
+
+
+
+
+
 /gs/project/mugqic/bioinformatics.ca/epigenomics/chip-seq/H1/data/H3K27ac/H3K27ac.H1.fastq.gz
 ``` 
 
