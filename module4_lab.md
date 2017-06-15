@@ -34,15 +34,15 @@ In this module's lab, we will explore some of the tools that were covered in the
 
 ## Tutorial
 
-#####  Connect to the Guillimin HPC
+#####  Connect to the Mammouth HPC
 
 We will need the HPC for some of the steps, so we'll open a shell access now. Replace *lect99* with your login name.
 
 ```
-ssh lect99@guillimin.clumeq.ca
+ssh lect99@workshop103.ccs.usherbrooke.ca
 ```
 
-You will be in your home folder. At this step, before continuing, please make sure that you followed the instructions in the section **"The first time you log in"** of the [Guillimin guide](using_the_guillimin_hpc.md). If you don't, compute jobs will not execute normally.
+You will be in your home folder.
 
 ##### Prepare directory for module 4
 
@@ -122,7 +122,7 @@ We will now attempt to detect motifs in peak regions for transcription factor bi
 
 * Get the URL to this track by clicking on the "Download datasets" button at the bottom of the grid. The URL should be *http://ftp.ebi.ac.uk/pub/databases/ensembl/encode/integration_data_jan2011/byDataType/peaks/jan2011/peakSeq/optimal/hub/peakSeq.optimal.wgEncodeHaibTfbsH1hescYy1c20Pcr1xAlnRep0_vs_wgEncodeHaibTfbsH1hescControlPcr1xAlnRep0.bb*.
 
-* Open your Guillimin terminal session, create a directory for our HOMER-related files, and go into it. Then, download the BigBed file.
+* Open your Mammouth (Compute Canada) terminal session, create a directory for our HOMER-related files, and go into it. Then, download the BigBed file.
 
 ```
 mkdir homer
@@ -149,16 +149,17 @@ mkdir preparsed
     * **mugqic/weblogo/2.8.2** to create the nice motifs images that we will visualize in a browser. Don't load module mugqic/weblogo/3.3, as the input parameters are very different and it will not work with HOMER.
 
 ```
-echo 'module load mugqic/homer/4.7 ; module load mugqic/weblogo/2.8.2 ; \
+module load mugqic/homer/4.7
+module load mugqic/weblogo/2.8.2
 findMotifsGenome.pl peakSeq.optimal.wgEncodeHaibTfbsH1hescYy1c20Pcr1xAlnRep0_vs_wgEncodeHaibTfbsH1hescControlPcr1xAlnRep0.bed \
-hg19 output -preparsedDir preparsed -p 2 -S 15' | qsub -l nodes=1:ppn=2 -d .
+hg19 output -preparsedDir preparsed -p 2 -S 15
 ```
 
 * HOMER takes a while to execute for a whole genome track like this. Expect this job to take about 30 minutes of runtime, with the current 2 cores setup. In the meantime, we will explore the GO terms enrichment tool GREAT.
 
 ### 3- Looking for GO terms enrichment with GREAT
 
-Next, we will try to identify GO terms connected to ChIP-Seq peaks calls using GREAT. We need BED files to use the GREAT portal. We will do the conversion on the Guillimin HPC.
+Next, we will try to identify GO terms connected to ChIP-Seq peaks calls using GREAT. We need BED files to use the GREAT portal. We will do the conversion on the HPC.
 
 * In the IHEC Data Portal, go back to the default grid page (by clicking on Data Grid in the top bar). Filter the tissues list to keep only "Bone Marrow" tissues.
 
@@ -178,7 +179,7 @@ Next, we will try to identify GO terms connected to ChIP-Seq peaks calls using G
 
 ![img](https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/module4_GREAT_batch_download.png)
 
-* Open the terminal that's logged into Guillimin.
+* Open the terminal that's logged into Mammouth.
 
 * Go to your module4 directory and create a place to put the material we will download.
 
@@ -210,10 +211,10 @@ bigBedToBed S005HDH1.H3K27ac.ppqt_macs2_v2.20130819.bb S005HDH1.H3K27ac.ppqt_mac
 
 **Note:** If you're under Linux / Mac, you can also install the UCSC tools locally, as they are a useful set of tools to manipulate tracks data, without requiring so much processing power.
 
-* Download the BED files locally using **scp** / **WinSCP**. Don't forget to run the command on a local terminal session, not on Guillimin.
+* Download the BED files locally using **scp** / **WinSCP**. Don't forget to run the command on a local terminal session, not on Mammouth.
 
 ```
-scp lect99@guillimin.clumeq.ca:/home/lect99/module4/great/*.bed .
+scp lect99@workshop103.ccs.usherbrooke.ca:/home/lect99/module4/great/*.bed .
 ```
 
 * Load the GREAT website: [http://bejerano.stanford.edu/great/public/html/](http://bejerano.stanford.edu/great/public/html/)
@@ -226,7 +227,7 @@ scp lect99@guillimin.clumeq.ca:/home/lect99/module4/great/*.bed .
 
 ![img](https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/module4_GREAT_go_biological_process.png)
 
-If you weren't able to retrieve the BED file from guillimin, you can also get it here
+If you weren't able to retrieve the BED file from Mammouth, you can also get it here
 
 [BED file](https://bioinformatics-ca.github.io/2016_workshops/epigenomics/S005HDH1_H3K27ac.bed)
 
@@ -241,7 +242,7 @@ showq -ulect99
 If the job is completed, you can bring back HOMER results to your laptop for visualiztion. **From your laptop**, use the scp command or WinSCP to bring back the results folder.
 
 ```
-scp lect99@guillimin.clumeq.ca:/home/lect99/module4/homer/output .
+scp lect99@workshop103.ccs.usherbrooke.ca:/home/lect99/module4/homer/output .
 ```
 
 Then, open the de novo and known motifs HTML files in a browser for visualization. Do the identified motifs fit what we would expect?
@@ -258,14 +259,21 @@ If your job didn't complete yet, you can download the results from here instead:
 
 We will now explore and learn how to user the Galaxy interface.
 
+Using a web browser, open the following URL: ```http://workshop103-galaxy.vzhost34.genap.ca/galaxy/```
+ 
+Create an ac
 
-http://masterv4-resub1.vzhost34.genap.ca/galaxy/
+
+#### This is only the beginning...
+ 
 
 
 
-### Congrats, now you're really done!
 
-If you have time remaining, try running queries on other types of datasets. For example, does running a GREAT query on another cell type yield the type of annotations that you'd expect?
+
+### All done!
+
+If you have time remaining, you can try running other types of jobs on Galaxy, or explore further the tools that we covered in this lab, using other types of datasets. For example, does running a GREAT query on another cell type yield the type of annotations that you'd expect?
 
 
 
