@@ -171,7 +171,8 @@ chr3:44,513,532-44,523,018
 
 You should see something like
 
-![region](https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/region1.png)
+
+<img src="https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/region1.png" alt="Region" width="750" />
 
 ### Repeat for the other replicate
 
@@ -293,7 +294,7 @@ Load `iPSC_2.1_bismark_bt2_pe.bedGraph` in IGV using `File -> Load from file`.
 
 At this point, if you load the region `chr3:44,513,532-44,523,018` you should see something like
 
-![region](https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/region1_full.png)
+<img src="https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/region1_full.png" alt="Region" width="750" />
 
 This promoter looks to be hypomethylated. 
 
