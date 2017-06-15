@@ -72,6 +72,7 @@ cd ~/module4
 
 ![img](https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/module4_portal_muscle_h3k27ac.png)
 
+
 #### Visualizing the tracks
 
 * Select "Visualize in Genome Browser"
@@ -90,8 +91,8 @@ You can get a whole genome overview of the similarity of a group of tracks by us
 
 * From the filters at the right of the grid, add back datasets for all tissues and all assay types.
 
-![img](https://bioinformaticsdotca.github.io/epigenomics_2017/img/module4_2017_portal_selectAllTissues.png)
-![img](https://bioinformaticsdotca.github.io/epigenomics_2017/img/module4_2017_portal_selectAllAssays.png)
+![img](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_portal_selectAllTissues.png)
+![img](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_portal_selectAllAssays.png)
 
 * Select all ChIP-Seq marks for the cell type "Bone Marrow Derived Mesenchymal Stem Cell Cultured Cell", first 6 columns.
 
@@ -101,7 +102,7 @@ You can get a whole genome overview of the similarity of a group of tracks by us
 
 * You will see that tracks seem to correlate nicely, with activator marks clustering together and repressor marks forming another group. You can zoom out the view at the upper right corner of the popup.
 
-![img](https://bioinformaticsdotca.github.io/epigenomics_2017/img/module4_2017_portal_clusteringPerMark.png)
+![img](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_portal_clusteringPerMark.png)
 
 * You can also use the correlation tool to assess whether datasets that are supposed to be similar actually are.
     * Close the correlation popup window with the top right "X" button.
@@ -110,11 +111,11 @@ You can get a whole genome overview of the similarity of a group of tracks by us
     * Click on "Correlate tracks".
     * One dataset seems to be an outlier... This is either a problem with the quality of the dataset, or the underlying metadata can indicate that something is different (disease status or some other key element).
 
-![img](https://bioinformaticsdotca.github.io/epigenomics_2017/img/module4_2017_portal_selectBcell.png)
+![img](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_portal_selectBcell.png)
 
 You should get something like this:
 
-![img](https://bioinformaticsdotca.github.io/epigenomics_2017/img/module4_2017_portal_correlationOutlier.png)
+![img](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_portal_correlationOutlier.png)
 
 ### 2- Predicting motifs with HOMER
 
@@ -122,21 +123,21 @@ We will now attempt to detect motifs in peak regions for transcription factor bi
 
 * Go back to the default IHEC Data Portal view by clicking "Data Grid" in the top bar.
 
-![img](https://bioinformaticsdotca.github.io/epigenomics_2017/img/module4_2017_HOMER_selectDataGrid.png)
+![img](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_HOMER_selectDataGrid.png)
 
 * In the filters at the bottom of the grid, activate non-core IHEC assays, and display only Transcription Factor Binding Sites (```TFBS```) assays for ```ES Cells``` cell type.
 
-![img](https://bioinformaticsdotca.github.io/epigenomics_2017/img/module4_2017_HOMER_showNonCoreAssays.png)
-![img](https://bioinformaticsdotca.github.io/epigenomics_2017/img/module4_2017_HOMER_showTFBS.png)
-![img](https://bioinformaticsdotca.github.io/epigenomics_2017/img/module4_2017_HOMER_showESCells.png)
+![img](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_HOMER_showNonCoreAssays.png)
+![img](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_HOMER_showTFBS.png)
+![img](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_HOMER_showESCells.png)
 
 * In the grid, select ENCODE datasets for the YY1 assay and the H1hESC cell type.
 
-![img](https://bioinformaticsdotca.github.io/epigenomics_2017/img/module4_2017_HOMER_selectYY1.png)
+![img](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_HOMER_selectYY1.png)
 
 * Go to the track list at the bottom of the grid and select only the dataset for sample "H1-hESC_YY1_Pk__HudsonAlpha_".
 
-![img](https://bioinformaticsdotca.github.io/epigenomics_2017/img/module4_2017_HOMER_selectPeaksTrack.png)
+![img](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_HOMER_selectPeaksTrack.png)
 
 * Get the URL to this track by clicking on the "Download datasets" button at the bottom of the grid: ```peakSeq.optimal.wgEncodeHaibTfbsH1hescYy1c20Pcr1xAlnRep0_vs_wgEncodeHaibTfbsH1hescControlPcr1xAlnRep0.bb```
 The URL should be ```http://epigenomesportal.ca/tracks/ENCODE/hg19/26900.ENCODE.H1-hESC_YY1_Pk__HudsonAlpha_.YY1.peak_calls.bigBed```.
@@ -182,13 +183,13 @@ Next, we will try to identify GO terms connected to ChIP-Seq peaks calls using G
 
 ![img](https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/module4_GREAT_activate_all_trackhubs.png)
 
-* Select the datasets for cell type "Bone marrow" and assay H3K27ac.
+* Select the datasets for cell type "Myeloid cell" and assay H3K27ac.
 
 ![img](https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/module4_GREAT_bone_marrow_h3k27ac.png)
 
 * For this exercise, we will download only two of the bigbeds for available datasets. Pick up the one for the "ERS255952" and "ERS365962" sample.
 
-![img](https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/module4_GREAT_select_Blueprint_dataset.png)
+![img](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_GREAT_selectSomeBoneMarrowDatasets.png)
 
 * Click "Download tracks" at the bottom of the grid.
 
@@ -196,7 +197,7 @@ Next, we will try to identify GO terms connected to ChIP-Seq peaks calls using G
 
 ![img](https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/module4_GREAT_batch_download.png)
 
-* Open the terminal that's logged into Mammouth.
+* Open another terminal connection to get into Mammouth.
 
 * Go to your module4 directory and create a place to put the material we will download.
 
@@ -210,7 +211,7 @@ cd great
     * Use the **wget** command to download the text file that contains the list of tracks.
 
 ```
-wget -O trackList.txt http://epigenomesportal.ca/edcc/cgi-bin/downloadList.cgi?hubId=4580&as=1
+wget -O trackList.txt http://epigenomesportal.ca/cgi-bin/downloadList.cgi?session=3537
 ```
 
 * Now download the tracks that are contained in this list.
@@ -223,10 +224,18 @@ wget -i trackList.txt
 
 ```
 module load mugqic/ucsc/20140212
-bigBedToBed S005HDH1.H3K27ac.ppqt_macs2_v2.20130819.bb S005HDH1.H3K27ac.ppqt_macs2_v2.20130819.bed
+bigBedToBed 24584.Blueprint.ERS255952.H3K27ac.peak_calls.bigBed 24584.Blueprint.ERS255952.H3K27ac.peak_calls.bed
 ```
 
 **Note:** If you're under Linux / Mac, you can also install the UCSC tools locally, as they are a useful set of tools to manipulate tracks data, without requiring so much processing power.
+
+* GREAT has a limit on the number of regions to be tested in one execution. Therefore, we need to subsample our file. We can create a BED file subsample this way:
+    * Sort BED file in random order with ```sort -R```
+    * Take the 20000 first lines in the file with ```head -n20000```
+
+```
+sort -R 24584.Blueprint.ERS255952.H3K27ac.peak_calls.bed | head -n 20000 > 24584.Blueprint.ERS255952.H3K27ac.peak_calls.random_short.bed
+```
 
 * Download the BED files locally using **scp** / **WinSCP**. Don't forget to run the command on a local terminal session, not on Mammouth.
 
@@ -238,25 +247,17 @@ scp lect99@workshop103.ccs.usherbrooke.ca:/home/lect99/module4/great/*.bed .
 
 * Provide the following input to the GREAT interface:
     * Assembly: **Human: GRCh37**
-    * One of the BED files you just downloaded.
+    * The randomized short version of the BED files you just downloaded.
+
+* Submit the form.
 
 * In the results, for instance, you should obtain something like this for biological processes:
 
 ![img](https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/module4_GREAT_go_biological_process.png)
 
-If you weren't able to retrieve the BED file from Mammouth, you can also get it here
-
-[BED file](https://bioinformatics-ca.github.io/2016_workshops/epigenomics/S005HDH1_H3K27ac.bed)
-
 ### Go back to your HOMER results
 
-* Is the job done? (Replace %% by the number in your username)
-
-```
-showq -ulect99
-```
-
-If the job is completed, you can bring back HOMER results to your laptop for visualiztion. **From your laptop**, use the scp command or WinSCP to bring back the results folder.
+* Is the job done? If the job is completed, you can bring back HOMER results to your laptop for visualiztion. **From your laptop**, use the scp command or WinSCP to bring back the results folder.
 
 ```
 scp lect99@workshop103.ccs.usherbrooke.ca:/home/lect99/module4/homer/output .
@@ -266,7 +267,7 @@ Then, open the de novo and known motifs HTML files in a browser for visualizatio
 
 ![img](https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/module4_HOMER_results.png)
 
-If your job didn't complete yet, you can download the results from here instead:
+If your job didn't complete yet, you can download the complete results from here instead:
 
 [Homer results](https://bioinformatics-ca.github.io/2016_workshops/epigenomics/homer_output.zip)
 
@@ -274,7 +275,7 @@ If your job didn't complete yet, you can download the results from here instead:
 
 ### Galaxy
 
-We will now explore and learn how to user the Galaxy interface.
+We will now explore and learn how to user the Galaxy interface. In this short exercise,
 
 Using a web browser, open the following URL: ```http://workshop103-galaxy.vzhost34.genap.ca/galaxy/```
  
@@ -285,18 +286,3 @@ Using a web browser, open the following URL: ```http://workshop103-galaxy.vzhost
 ### All done!
 
 If you have time remaining, you can try running other types of jobs on Galaxy, or explore further the tools that we covered in this lab, using other types of datasets. For example, does running a GREAT query on another cell type yield the type of annotations that you'd expect?
-
-
-
-
-
-
-
-
-
-
-
-
-## Answer to questions
-
-###
