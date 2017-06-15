@@ -92,6 +92,7 @@ You can get a whole genome overview of the similarity of a group of tracks by us
 * From the filters at the right of the grid, add back datasets for all tissues and all assay types.
 
 ![img](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_portal_selectAllTissues.png)
+
 ![img](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_portal_selectAllAssays.png)
 
 * Select all ChIP-Seq marks for the cell type "Bone Marrow Derived Mesenchymal Stem Cell Cultured Cell", first 6 columns.
@@ -102,7 +103,7 @@ You can get a whole genome overview of the similarity of a group of tracks by us
 
 * You will see that tracks seem to correlate nicely, with activator marks clustering together and repressor marks forming another group. You can zoom out the view at the upper right corner of the popup.
 
-![img](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_portal_clusteringPerMark.png)
+<img src="https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_portal_clusteringPerMark.png" alt="Region" width="750" />
 
 * You can also use the correlation tool to assess whether datasets that are supposed to be similar actually are.
     * Close the correlation popup window with the top right "X" button.
@@ -123,12 +124,14 @@ We will now attempt to detect motifs in peak regions for transcription factor bi
 
 * Go back to the default IHEC Data Portal view by clicking "Data Grid" in the top bar.
 
-![img](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_HOMER_selectDataGrid.png)
+<img src="https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_HOMER_selectDataGrid.png" alt="Region" width="750" />
 
 * In the filters at the bottom of the grid, activate non-core IHEC assays, and display only Transcription Factor Binding Sites (```TFBS```) assays for ```ES Cells``` cell type.
 
 ![img](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_HOMER_showNonCoreAssays.png)
+
 ![img](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_HOMER_showTFBS.png)
+
 ![img](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_HOMER_showESCells.png)
 
 * In the grid, select ENCODE datasets for the YY1 assay and the H1hESC cell type.
@@ -137,7 +140,8 @@ We will now attempt to detect motifs in peak regions for transcription factor bi
 
 * Go to the track list at the bottom of the grid and select only the dataset for sample "H1-hESC_YY1_Pk__HudsonAlpha_".
 
-![img](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_HOMER_selectPeaksTrack.png)
+<img src="https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_HOMER_selectPeaksTrack.png" alt="Region" width="750" />
+
 
 * Get the URL to this track by clicking on the "Download datasets" button at the bottom of the grid: ```peakSeq.optimal.wgEncodeHaibTfbsH1hescYy1c20Pcr1xAlnRep0_vs_wgEncodeHaibTfbsH1hescControlPcr1xAlnRep0.bb```
 The URL should be ```http://epigenomesportal.ca/tracks/ENCODE/hg19/26900.ENCODE.H1-hESC_YY1_Pk__HudsonAlpha_.YY1.peak_calls.bigBed```.
@@ -189,7 +193,7 @@ Next, we will try to identify GO terms connected to ChIP-Seq peaks calls using G
 
 * For this exercise, we will download only two of the bigbeds for available datasets. Pick up the one for the "ERS255952" and "ERS365962" sample.
 
-![img](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_GREAT_selectSomeBoneMarrowDatasets.png)
+<img src="https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_GREAT_selectSomeBoneMarrowDatasets.png" alt="Region" width="750" />
 
 * Click "Download tracks" at the bottom of the grid.
 
@@ -253,7 +257,7 @@ scp lect99@workshop103.ccs.usherbrooke.ca:/home/lect99/module4/great/*.bed .
 
 * In the results, for instance, you should obtain something like this for biological processes:
 
-![img](https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/module4_GREAT_go_biological_process.png)
+<img src="https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/module4_GREAT_go_biological_process.png" alt="Region" width="750" />
 
 ### Go back to your HOMER results
 
@@ -265,7 +269,7 @@ scp lect99@workshop103.ccs.usherbrooke.ca:/home/lect99/module4/homer/output .
 
 Then, open the de novo and known motifs HTML files in a browser for visualization. Do the identified motifs fit what we would expect?
 
-![img](https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/module4_HOMER_results.png)
+<img src="https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/module4_HOMER_results.png" alt="Region" width="750" />
 
 If your job didn't complete yet, you can download the complete results from here instead:
 
