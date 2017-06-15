@@ -94,7 +94,8 @@ samtools sort H3K27ac.H1.bam H3K27ac.H1.sorted
 NOTE: if we use option '-n' in "samtools sort" file will be name sorted. Useful for pair-end data; then two reads from the pair are next to each other in the file.
 
 Check:
-``` ls -lh
+``` 
+ls -lh
 ```
 You see that "BAM" file is ~4-5 times smaller than "SAM"
 
