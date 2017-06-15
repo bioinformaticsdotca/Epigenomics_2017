@@ -36,7 +36,7 @@ In this module's lab, we will explore some of the tools that were covered in the
 
 #####  Connect to the Mammouth HPC
 
-We will need the HPC for some of the steps, so we'll open a shell access now. Replace *lect99* with your login name.
+We will need the HPC for some of the steps, so we'll open a shell access now. Replace *lect99* with your login name. (In Windows, you will connect using Putty.)
 
 ```
 ssh lect99@workshop103.ccs.usherbrooke.ca
@@ -45,6 +45,10 @@ ssh lect99@workshop103.ccs.usherbrooke.ca
 You will be in your home folder.
 
 ##### Prepare directory for module 4
+
+* Remove any ```module4``` folder that could already exist in your home directory with the "rm" command.
+* Create a new ```module4``` directory.
+* Go to that directory.
 
 ```
 rm -rf ~/module4
@@ -60,7 +64,7 @@ cd ~/module4
 * In the Overview page, click on the "View all" button.
 
 * You will get a grid with all available datasets for IHEC Core Assays.
-    * You can filter out visible datasets in the grid using the filtering options at the bottom of the grid.
+    * You can filter out visible datasets in the grid using the filtering options at the right of the grid.
 
 * Go back to the Overview page, and select the following categories of datasets: "Histone" for the "Muscle" cell type.
 
@@ -71,22 +75,25 @@ cd ~/module4
 #### Visualizing the tracks
 
 * Select "Visualize in Genome Browser"
-    * You can see that the datasets are being displayed at a mirror of the UCSC Genome Browser. These are all peaks and signal for the chosen muscle H3K427ac ChIP-Seq datasets. In the Genome Browser, you can expand the tracks by changing visibility from "pack" to "full" and clicking the "Refresh" button.
+    * You can see that the datasets are being displayed at a mirror of the UCSC Genome Browser. These are all peaks and signal for the chosen muscle H3K27ac ChIP-Seq datasets. In the Genome Browser, you can expand the tracks by changing visibility from "pack" to "full" and clicking the "Refresh" button.
 
 ![img](https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/module4_portal_fullTrackView.png)
     
-* You can also download these tracks locally for visualization in IGV. (You can skip this step if you're comfortable with IGV already)
+* You can also download these tracks locally for visualization in IGV.
     * Go back to the IHEC Data Portal tab.
     * Click on the "Download tracks" button at the bottom of the grid.
-    * Use the download links to download a few of the tracks.
+    * Use the download links to download a few of the available tracks.
     * Open them in IGV.
 
 #### Tracks correlation
 You can get a whole genome overview of the similarity of a group of tracks by using the Portal's correlation tool.
 
-* From the filters at the bottom of the grid, add back datasets for all tissues.
+* From the filters at the right of the grid, add back datasets for all tissues and all assay types.
 
-* Select all ChIP-Seq marks for the cell type "Bone Marrow Derived Mesenchymal Stem Cell Cultured Cell".
+![img](https://bioinformaticsdotca.github.io/epigenomics_2017/img/module4_2017_portal_selectAllTissues.png)
+![img](https://bioinformaticsdotca.github.io/epigenomics_2017/img/module4_2017_portal_selectAllAssays.png)
+
+* Select all ChIP-Seq marks for the cell type "Bone Marrow Derived Mesenchymal Stem Cell Cultured Cell", first 6 columns.
 
 ![img](https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/module4_portal_roadmap_chipseq.png)
 
@@ -94,13 +101,20 @@ You can get a whole genome overview of the similarity of a group of tracks by us
 
 * You will see that tracks seem to correlate nicely, with activator marks clustering together and repressor marks forming another group. You can zoom out the view at the upper right corner of the popup.
 
+![img](https://bioinformaticsdotca.github.io/epigenomics_2017/img/module4_2017_portal_clusteringPerMark.png)
+
 * You can also use the correlation tool to assess whether datasets that are supposed to be similar actually are.
-    * Activate the track hubs for all consortia.
+    * Close the correlation popup window with the top right "X" button.
+    * Reset grid selection with the "Reset" button at the bottom of the grid.
     * Click on the grid cell for cell type "B Cell" and assay "H3K27ac".
     * Click on "Correlate tracks".
     * One dataset seems to be an outlier... This is either a problem with the quality of the dataset, or the underlying metadata can indicate that something is different (disease status or some other key element).
 
-![img](https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/module4_portal_BCell.png)
+![img](https://bioinformaticsdotca.github.io/epigenomics_2017/img/module4_2017_portal_selectBcell.png)
+
+You should get something like this:
+
+![img](https://bioinformaticsdotca.github.io/epigenomics_2017/img/module4_2017_portal_correlationOutlier.png)
 
 ### 2- Predicting motifs with HOMER
 
@@ -108,26 +122,30 @@ We will now attempt to detect motifs in peak regions for transcription factor bi
 
 * Go back to the default IHEC Data Portal view by clicking "Data Grid" in the top bar.
 
-* In the filters at the bottom of the grid, activate non-core IHEC assays, and display only Transcription Factor Binding Sites (TFBS) assays.
+![img](https://bioinformaticsdotca.github.io/epigenomics_2017/img/module4_2017_HOMER_selectDataGrid.png)
 
-![img](https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/module4_HOMER_show_tfbs.png)
+* In the filters at the bottom of the grid, activate non-core IHEC assays, and display only Transcription Factor Binding Sites (```TFBS```) assays for ```ES Cells``` cell type.
+
+![img](https://bioinformaticsdotca.github.io/epigenomics_2017/img/module4_2017_HOMER_showNonCoreAssays.png)
+![img](https://bioinformaticsdotca.github.io/epigenomics_2017/img/module4_2017_HOMER_showTFBS.png)
+![img](https://bioinformaticsdotca.github.io/epigenomics_2017/img/module4_2017_HOMER_showESCells.png)
 
 * In the grid, select ENCODE datasets for the YY1 assay and the H1hESC cell type.
 
-![img](https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/module4_HOMER_H1hESC.png)
+![img](https://bioinformaticsdotca.github.io/epigenomics_2017/img/module4_2017_HOMER_selectYY1.png)
 
-* Go to the track list at the bottom of the grid and select only the peak file "HaibH1hescYy1c20Pcr1xAlnRep0peakSeq".
+* Go to the track list at the bottom of the grid and select only the dataset for sample "H1-hESC_YY1_Pk__HudsonAlpha_".
 
-![img](https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/module4_HOMER_encode_yy1_h1_peaks.png)
+![img](https://bioinformaticsdotca.github.io/epigenomics_2017/img/module4_2017_HOMER_selectPeaksTrack.png)
 
-* Get the URL to this track by clicking on the "Download datasets" button at the bottom of the grid. The URL should be *http://ftp.ebi.ac.uk/pub/databases/ensembl/encode/integration_data_jan2011/byDataType/peaks/jan2011/peakSeq/optimal/hub/peakSeq.optimal.wgEncodeHaibTfbsH1hescYy1c20Pcr1xAlnRep0_vs_wgEncodeHaibTfbsH1hescControlPcr1xAlnRep0.bb*.
-
+* Get the URL to this track by clicking on the "Download datasets" button at the bottom of the grid: ```peakSeq.optimal.wgEncodeHaibTfbsH1hescYy1c20Pcr1xAlnRep0_vs_wgEncodeHaibTfbsH1hescControlPcr1xAlnRep0.bb```
+The URL should be ```http://epigenomesportal.ca/tracks/ENCODE/hg19/26900.ENCODE.H1-hESC_YY1_Pk__HudsonAlpha_.YY1.peak_calls.bigBed```.
 * Open your Mammouth (Compute Canada) terminal session, create a directory for our HOMER-related files, and go into it. Then, download the BigBed file.
 
 ```
 mkdir homer
 cd homer
-wget http://ftp.ebi.ac.uk/pub/databases/ensembl/encode/integration_data_jan2011/byDataType/peaks/jan2011/peakSeq/optimal/hub/peakSeq.optimal.wgEncodeHaibTfbsH1hescYy1c20Pcr1xAlnRep0_vs_wgEncodeHaibTfbsH1hescControlPcr1xAlnRep0.bb
+wget http://epigenomesportal.ca/tracks/ENCODE/hg19/26900.ENCODE.H1-hESC_YY1_Pk__HudsonAlpha_.YY1.peak_calls.bigBed
 ```
 
 * Convert the bigBed file into a bed file using the UCSC set of tools. It is available as a CVMFS module.
