@@ -95,7 +95,7 @@ NOTE: if we use option '-n' in "samtools sort" file will be name sorted. Useful 
 
 Check:
 ``` ls -lh
-``
+```
 You see that "BAM" file is ~4-5 times smaller than "SAM"
 
 7. Lets look into alignment file:
