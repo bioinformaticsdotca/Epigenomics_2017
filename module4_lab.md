@@ -224,7 +224,7 @@ wget -O trackList.txt http://epigenomesportal.ca/cgi-bin/downloadList.cgi?sessio
 wget -i trackList.txt
 ```
 
-* Convert the bigbed using the UCSC set of tools. It is available as a CVMFS module. For this example, we will convert and use only one of the files, **S005HDH1.H3K27ac.ppqt_macs2_v2.20130819.bb**.
+* Convert the bigbed using the UCSC set of tools. It is available as a CVMFS module. For this example, we will convert and use only one of the files, **24584.Blueprint.ERS255952.H3K27ac.peak_calls.bigBed**.
 
 ```
 module load mugqic/ucsc/20140212
