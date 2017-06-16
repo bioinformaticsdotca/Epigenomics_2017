@@ -95,11 +95,11 @@ You can get a whole genome overview of the similarity of a group of tracks by us
 
 ![img](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_portal_selectAllAssays.png)
 
-* Select all ChIP-Seq marks for the cell type "Bone Marrow Derived Mesenchymal Stem Cell Cultured Cell", first 6 columns.
+* Select all ChIP-Seq marks for the cell type "Bone Marrow Derived Mesenchymal Stem Cell Cultured Cell", the first 6 columns.
 
 ![img](https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/module4_portal_roadmap_chipseq.png)
 
-* At the bottom of the grid, click on the button "Correlate tracks".
+* At the bottom of the grid, click on the button "Correlate Datasets".
 
 * You will see that tracks seem to correlate nicely, with activator marks clustering together and repressor marks forming another group. You can zoom out the view at the upper right corner of the popup.
 
