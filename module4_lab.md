@@ -143,7 +143,7 @@ We will now attempt to detect motifs in peak regions for transcription factor bi
 <img src="https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_HOMER_selectPeaksTrack.png" alt="Region" width="750" />
 
 
-* Get the URL to this track by clicking on the "Download datasets" button at the bottom of the grid: ```peakSeq.optimal.wgEncodeHaibTfbsH1hescYy1c20Pcr1xAlnRep0_vs_wgEncodeHaibTfbsH1hescControlPcr1xAlnRep0.bb```
+* Get the URL to this track by clicking on the "Download tracks" button at the bottom of the grid: ```peakSeq.optimal.wgEncodeHaibTfbsH1hescYy1c20Pcr1xAlnRep0_vs_wgEncodeHaibTfbsH1hescControlPcr1xAlnRep0.bb```
 The URL should be ```http://epigenomesportal.ca/tracks/ENCODE/hg19/26900.ENCODE.H1-hESC_YY1_Pk__HudsonAlpha_.YY1.peak_calls.bigBed```.
 * Open your Mammouth (Compute Canada) terminal session, create a directory for our HOMER-related files, and go into it. Then, download the BigBed file.
 
@@ -167,9 +167,9 @@ mkdir output
 mkdir preparsed
 ```
 
-* Run the HOMER software to identify motifs in the peak regions. To do so, we will launch a job on the scheduler. Please note that there are two modules necessary here:
-    * **mugqic/homer/4.7** to run HOMER
-    * **mugqic/weblogo/2.8.2** to create the nice motifs images that we will visualize in a browser. Don't load module mugqic/weblogo/3.3, as the input parameters are very different and it will not work with HOMER.
+* Run the HOMER software to identify motifs in the peak regions. Please note that there are two modules necessary here:
+    * **mugqic/homer/4.9.1** to run HOMER
+    * **mugqic/weblogo/3.5.0** to create the nice motifs images that we will visualize in a browser. Don't load another module for weblogo, as the input parameters are very different across versions, and it will not work with HOMER.
 
 ```
 module load mugqic/homer/4.9.1
