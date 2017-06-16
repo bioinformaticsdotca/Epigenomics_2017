@@ -256,7 +256,7 @@ scp lect99@workshop103.ccs.usherbrooke.ca:/home/lect99/module4/great/*.bed .
 * Submit the form.
 
 * In the results, for instance, you should obtain something like this for biological processes:
-.`
+
 <img src="https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/module4_GREAT_go_biological_process.png" alt="Region" width="750" />
 
 ### Go back to your HOMER results
