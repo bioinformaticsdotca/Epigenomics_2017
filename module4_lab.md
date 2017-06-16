@@ -89,7 +89,7 @@ cd ~/module4
 #### Tracks correlation
 You can get a whole genome overview of the similarity of a group of tracks by using the Portal's correlation tool.
 
-* From the filters at the right of the grid, add back datasets for all tissues and all assay types.
+* Back on the grid page, from the filters at the right of the grid, add back datasets for all tissues and all assay types.
 
 ![img](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_portal_selectAllTissues.png)
 
