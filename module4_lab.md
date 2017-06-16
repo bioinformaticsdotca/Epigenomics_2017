@@ -126,7 +126,7 @@ We will now attempt to detect motifs in peak regions for transcription factor bi
 
 <img src="https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_HOMER_selectDataGrid.png" alt="Region" width="750" />
 
-* In the filters at the bottom of the grid, activate non-core IHEC assays, and display only Transcription Factor Binding Sites (```TFBS```) assays for ```ES Cells``` cell type.
+* In the filters to the right of the grid, activate non-core IHEC assays, and display only Transcription Factor Binding Sites (```TFBS```) assays for ```ES Cells``` cell type.
 
 ![img](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_HOMER_showNonCoreAssays.png)
 
