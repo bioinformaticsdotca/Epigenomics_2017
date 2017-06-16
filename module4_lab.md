@@ -300,7 +300,7 @@ While you can run Galaxy jobs without creating an account, features and number o
         * [https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/files/adrenal_1.fastq](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/files/adrenal_1.fastq)
         * [https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/files/adrenal_2.fastq](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/files/adrenal_2.fastq)
     * For Genome, specify “Human (Home sapiens): hg19”
-    * Click Execute.
+    * Click on ```Start```.
 
 * After it finished to upload (green state), rename the two imported files, for better organization.
     * From the history column, click on the ```Pen``` icon for the first imported item, and enter the new name “adrenal_1” in the dialog.
