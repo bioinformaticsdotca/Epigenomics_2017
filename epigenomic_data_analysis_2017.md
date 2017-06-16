@@ -19,6 +19,12 @@ If you have questions or comments, visit the workshop [Q&A forum](https://noteap
 
 ***
 
+# Class Photo
+ 
+<img src="https://github.com/bioinformaticsdotca/Epigenomics_2017/blob/master/IMG_0131.JPG?raw=true" alt="Class Photo" width="750" />
+
+***  
+
 # Day 1 <a id="day1"></a>
 
 ##  Welcome <a id="welcome"></a>
@@ -68,5 +74,9 @@ If you have questions or comments, visit the workshop [Q&A forum](https://noteap
   [Lecture](https://bioinformatics.ca/epigenomics-2017-mod4)
   
   [Lab practical](http://bioinformaticsdotca.github.io/epigenomics_2017_module4_lab)
+
+***
+
+Thank you for attending the Exploratory Analysis of Biological Data using R workshop! Help us make this workshop better by filling out [our survey](https://goo.gl/forms/eOV7ciO8lUe2GHf72).
 
 ***
