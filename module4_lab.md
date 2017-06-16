@@ -261,7 +261,7 @@ scp lect99@workshop103.ccs.usherbrooke.ca:/home/lect99/module4/great/*.bed .
 
 ### Go back to your HOMER results
 
-* Is the job done? If the job is completed, you can bring back HOMER results to your laptop for visualiztion. **From your laptop**, use the scp command or WinSCP to bring back the results folder.
+* Is the job done? If it is completed, you can bring back HOMER results to your laptop for visualiztion. **From your laptop**, use the scp command or WinSCP to bring back the results folder.
 
 ```
 scp lect99@workshop103.ccs.usherbrooke.ca:/home/lect99/module4/homer/output .
