@@ -251,7 +251,7 @@ scp lect99@workshop103.ccs.usherbrooke.ca:/home/lect99/module4/great/*.bed .
 
 * Provide the following input to the GREAT interface:
     * Assembly: **Human: GRCh37**
-    * The randomized short version of the BED files you just downloaded.
+    * Test regions: The randomized short version of the BED files you just downloaded.
 
 * Submit the form.
 
