@@ -85,15 +85,15 @@ The `-1 data/iPSC_1.1.fastq` specifies the location of read 1. Idem for `-2` whi
 
 For more details, please refer to the Bismark [user guide](http://www.bioinformatics.babraham.ac.uk/projects/bismark/Bismark_User_Guide.pdf).
 
-##### Check status of your job
+#### Check status of your job
 
 Bismark first loads the reference genome one chromosome at a time. You should be able to follow progress.
 
-##### Check output messages
+#### Check output messages
 
 *Is this what you expected?*
 
-##### Map (again) using bismark
+#### Map (again) using bismark
 
 ```
 rm iPSC_*
@@ -101,14 +101,16 @@ module load mugqic/bismark/0.16.1 ; module load mugqic/bowtie2/2.2.4 ; module lo
 bismark --bowtie2 -n 1 /home/partage/epigenomics/wgb-seq/genome/ -1 data/iPSC_1.1.fastq -2 data/iPSC_1.2.fastq
 ```
 
-##### Check files
+#### Check files
 At the end, you should have something similar to
 
+````
 [lect99@workshop103 module3]$ ls -ltr
 total 13662
 drwxr-xr-x 2 lect03 lect        6 Jun 15 07:12 data
 -rw-r--r-- 1 lect03 lect 13964434 Jun 15 07:36 iPSC_1.1_bismark_bt2_pe.bam
 -rw-r--r-- 1 lect03 lect     1839 Jun 15 07:36 iPSC_1.1_bismark_bt2_PE_report.txt
+````
 
 Let's look at the report
 
@@ -126,7 +128,7 @@ samtools sort iPSC_1.1_bismark_bt2_pe.bam -o iPSC_1.1_bismark_bt2_pe_sorted.bam
 samtools index iPSC_1.1_bismark_bt2_pe_sorted.bam
 ```
 
-##### Check files
+#### Check files
 At the end, you should have something similar to
 
 ```
@@ -139,7 +141,7 @@ drwxr-xr-x 2 lect03 lect        6 Jun 15 07:12 data
 -rw-r--r-- 1 lect03 lect  1967480 Jun 15 07:39 iPSC_1.1_bismark_bt2_pe_sorted.bam.bai
 ```
 
-##### Copy files to your local computer to view in IGV
+#### Copy files to your local computer to view in IGV
 
 Using a different terminal window that is not connected to the server (if you are using Mac/Linux) or WinSCP (if you are using Windows), retrieve the `iPSC_1.1_bismark_bt2_pe_sorted.bam` and `iPSC_1.1_bismark_bt2_pe_sorted.bam.bai`
 
@@ -152,6 +154,8 @@ Where you need to replace the two places with "%%" by your student number.
 ### Load data and explore using IGV
 
 Launch IGV on your computer.
+
+If you haven't installed it yet, please get it here [IGV download](http://software.broadinstitute.org/software/igv/download).
 
 Load your sorted bam and index file in IGV using `File -> Load from file`.
 
@@ -171,12 +175,13 @@ chr3:44,513,532-44,523,018
 
 You should see something like
 
-
 <img src="https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/region1.png" alt="Region" width="750" />
+
+*If it looks different, can you change the way the colors are displayed?*
 
 ### Repeat for the other replicate
 
-##### Map using bismark
+#### Map using bismark
 
 ```
 module load mugqic/bismark/0.16.1 ; module load mugqic/bowtie2/2.2.4 ; module load mugqic/samtools/1.3 
@@ -187,14 +192,14 @@ bismark --bowtie2 -n 1 /home/partage/epigenomics/wgb-seq/genome/ -1 data/iPSC_2.
 
 *And what context would you need to repeat them?*
 
-##### Prepare files for IGV
+#### Prepare files for IGV
 
 ```
 samtools sort iPSC_2.1_bismark_bt2_pe.bam -o iPSC_2.1_bismark_bt2_pe_sorted.bam 
 samtools index iPSC_2.1_bismark_bt2_pe_sorted.bam
 ```
 
-##### Check files
+#### Check files
 At this point you should have something like
 
 ```
@@ -225,7 +230,7 @@ Do the same for the other replicate
 bismark_methylation_extractor --bedGraph iPSC_2.1_bismark_bt2_pe.bam
 ```
 
-##### Check files
+#### Check files
 At this point you should have something like
 
 ```
@@ -262,14 +267,14 @@ drwxr-xr-x 2 lect03 lect        6 Jun 15 07:12 data
 -rw-r--r-- 1 lect03 lect   322840 Jun 15 07:58 iPSC_2.1_bismark_bt2_pe.bismark.cov.gz
 ```
 
-##### Uncompress the bedGraph files
+#### Uncompress the bedGraph files
 
 ```
 gunzip iPSC_1.1_bismark_bt2_pe.bedGraph.gz
 gunzip iPSC_2.1_bismark_bt2_pe.bedGraph.gz
 ```
 
-##### Transfer the files to your local computer
+### Transfer the files to your local computer
 Using a different terminal window that is not connected to the server (if you are using Mac/Linux) or WinSCP (if you are using Windows), retrieve the `iPSC_2.1_bismark_bt2_pe_sorted.bam` and `iPSC_2.1_bismark_bt2_pe_sorted.bam.bai`
 
 ```
