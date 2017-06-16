@@ -172,8 +172,8 @@ mkdir preparsed
     * **mugqic/weblogo/2.8.2** to create the nice motifs images that we will visualize in a browser. Don't load module mugqic/weblogo/3.3, as the input parameters are very different and it will not work with HOMER.
 
 ```
-module load mugqic/homer/4.7
-module load mugqic/weblogo/2.8.2
+module load mugqic/homer/4.9.1
+module load mugqic/weblogo/3.5.0
 findMotifsGenome.pl 26900.ENCODE.H1-hESC_YY1_Pk__HudsonAlpha_.YY1.peak_calls.bed hg19 output -preparsedDir preparsed -p 2 -S 15
 ```
 
@@ -269,7 +269,7 @@ scp lect99@workshop103.ccs.usherbrooke.ca:/home/lect99/module4/homer/output .
 
 Then, open the de novo and known motifs HTML files in a browser for visualization. Do the identified motifs fit what we would expect?
 
-<img src="https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/module4_HOMER_results.png" alt="Region" width="750" />
+<img src="https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_HOMER_denovoResult.png" alt="Region" width="750" />
 
 If your job didn't complete yet, you can download the complete results from here instead:
 
@@ -279,7 +279,7 @@ If your job didn't complete yet, you can download the complete results from here
 
 ### Galaxy
 
-We will now explore and learn how to user the Galaxy interface. In this short exercise, we will load a FASTQ dataset, run FastQC on it, and trim it to improve overall quality of reads.
+We will now explore and learn how to use the Galaxy interface. In this short exercise, we will load a FASTQ dataset, run FastQC on it, and trim it to improve overall quality of reads.
 
 * Using a web browser, open the following URL: ```http://workshop103-galaxy.vzhost34.genap.ca/galaxy/```
  
@@ -293,11 +293,14 @@ While you can run Galaxy jobs without creating an account, features and number o
 
 * You are now logged in as a Galaxy user. For this exercise, we’ll use subsets of data from the Illumina BodyMap 2.0 project, from human adrenal gland tissues. The sampled reads are paired-end 50bp that map mostly to a 500Kb region of chromosome 19, positions 3-3.5 million (chr19:3000000:3500000). (source: https://usegalaxy.org/u/jeremy/p/galaxy-rna-seq-analysis-exercise)
 
-* Import the following two FASTQ files in your user space. To do so, use Get Data > Upload File from the tool section. You can provide both URLs in the same text box, or do the same job twice.
-    * [https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/files/adrenal_1.fastq](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/files/adrenal_1.fastq)
-    * [https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/files/adrenal_2.fastq](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/files/adrenal_2.fastq)
-
-* For Genome, specify “Human (Home sapiens): hg19”, and then click Execute.
+* Import the following two FASTQ files in your user space. To do so:
+    * Use Get Data > Upload File from the tool section
+    * Go to the ```Paste/Fetch data``` section
+    * You can provide both URLs in the same text box
+        * [https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/files/adrenal_1.fastq](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/files/adrenal_1.fastq)
+        * [https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/files/adrenal_2.fastq](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/files/adrenal_2.fastq)
+    * For Genome, specify “Human (Home sapiens): hg19”
+    * Click Execute.
 
 * After it finished to upload (green state), rename the two imported files, for better organization.
     * From the history column, click on the ```Pen``` icon for the first imported item, and enter the new name “adrenal_1” in the dialog.
