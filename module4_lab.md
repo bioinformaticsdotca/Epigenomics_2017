@@ -99,7 +99,7 @@ You can get a whole genome overview of the similarity of a group of tracks by us
 
 ![img](https://bioinformatics-ca.github.io/2016_workshops/epigenomics/img/module4_portal_roadmap_chipseq.png)
 
-* At the bottom of the grid, click on the button "Correlate Datasets".
+* At the bottom of the grid, click on the button "Correlate datasets".
 
 * You will see that tracks seem to correlate nicely, with activator marks clustering together and repressor marks forming another group. You can zoom out the view at the upper right corner of the popup.
 
@@ -109,7 +109,7 @@ You can get a whole genome overview of the similarity of a group of tracks by us
     * Close the correlation popup window with the top right "X" button.
     * Reset grid selection with the "Reset" button at the bottom of the grid.
     * Click on the grid cell for cell type "B Cell" and assay "H3K27ac".
-    * Click on "Correlate tracks".
+    * Click on "Correlate datasets".
     * One dataset seems to be an outlier... This is either a problem with the quality of the dataset, or the underlying metadata can indicate that something is different (disease status or some other key element).
 
 ![img](https://raw.githubusercontent.com/bioinformaticsdotca/Epigenomics_2017/master/img/module4_2017_portal_selectBcell.png)
