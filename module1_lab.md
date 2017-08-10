@@ -6,6 +6,9 @@ header1: Workshop Pages for Students
 header2: Epigenomic Data Analysis 2017 Module 1 Lab
 image: /site_images/CBW_Epigenome-data_icon.jpg
 home: https://bioinformaticsdotca.github.io/epigenomics_2017
+description: This module will cover the basics of how to login to the cluster, launch jobs and perform a basic QC analysis of the data sets.
+author: Martin Hirst
+modified: 2017-08-10
 ---
 
 # Module 1: Introduction to ChIP sequencing & analysis 
