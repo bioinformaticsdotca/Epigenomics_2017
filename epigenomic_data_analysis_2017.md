@@ -31,13 +31,13 @@ If you have questions or comments, visit the workshop [Q&A forum](https://noteap
 
   *<font color="#827e9c">Ann Meyer</font>* 
 
-[Lecture](https://bioinformatics.ca/epigenomics-2017-mod0)  
-
 ##  Module 1: Introduction to ChIP Sequencing and Analysis <a id="module_1"></a>
 
   *<font color="#827e9c">Martin Hirst</font>*
   
-  [Lecture](https://bioinformatics.ca/epigenomics-2017-mod1)  
+  [Lecture](https://drive.google.com/a/bioinformatics.ca/file/d/18M7qPBwiLg2QKuUeBkEDKabx2kGBdBjV/view?usp=sharing)  
+  
+  [Recording](https://youtu.be/XmIE557rQu0)  
   
   [Using the Compute Canada HPC](https://bioinformaticsdotca.github.io/epigenomics_2017_hpc_2017)  
 
@@ -48,7 +48,9 @@ If you have questions or comments, visit the workshop [Q&A forum](https://noteap
 
   *<font color="#827e9c">Misha Bilenky</font>*
   
-  [Lecture](https://bioinformatics.ca/epigenomics-2017-mod2)  
+  [Lecture](https://drive.google.com/a/bioinformatics.ca/file/d/11DoV3dPvCK3WBWtjoqm5IYboLzj5llxS/view?usp=sharing)  
+  
+  [Recording](https://youtu.be/qHFxmpToQXc)  
   
   [Lab practical](http://bioinformaticsdotca.github.io/epigenomics_2017_module2_lab)  
 
@@ -62,7 +64,9 @@ If you have questions or comments, visit the workshop [Q&A forum](https://noteap
 
   *<font color="#827e9c">Guillaume Bourque</font>*
   
-  [Lecture](https://bioinformatics.ca/epigenomics-2017-mod3)
+  [Lecture](https://drive.google.com/a/bioinformatics.ca/file/d/10FuyjJFDlhsPp5r5ORFF0ip9iut38WUO/view?usp=sharing)  
+  
+  [Recording](https://youtu.be/Sce1HJoa7kU)  
   
   [Lab practical](http://bioinformaticsdotca.github.io/epigenomics_2017_module3_lab)
 
@@ -71,7 +75,9 @@ If you have questions or comments, visit the workshop [Q&A forum](https://noteap
 
   *<font color="#827e9c">David Bujold</font>*
   
-  [Lecture](https://bioinformatics.ca/epigenomics-2017-mod4)
+  [Lecture](https://drive.google.com/a/bioinformatics.ca/file/d/1u8PkQFh0bbsSpUyGHf-hgDc3b0mrpeST/view?usp=sharing)  
+  
+  [Recording](https://youtu.be/TuG7JASi-HY)  
   
   [Lab practical](http://bioinformaticsdotca.github.io/epigenomics_2017_module4_lab)
 
