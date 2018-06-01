@@ -6,6 +6,7 @@ header1: Workshop Pages for Students
 header2: Epigenomic Data Analysis 2017
 image: /site_images/CBW_Epigenome-data_icon.jpg
 keywords: Align ChIP-seq and WGBS sequence data to reference genome, visualize and summarize output, explore integrative tools for epigenomic data sets
+description: Course provides an introduction to histone ChIP-seq and WGBS data analysis followed by integrated tutorials demonstrating the use of open source ChIP-Seq nad WGBS analysis packages.
 instructors: Martin Hirst, Misha Bilenky, Guillaume Bourque, David Bujold
 length: 2 days
 ---
