@@ -6,6 +6,9 @@ header1: Workshop Pages for Students
 header2: Epigenomic Data Analysis 2017 Module 2 Lab
 image: /site_images/CBW_Epigenome-data_icon.jpg
 home: https://bioinformaticsdotca.github.io/epigenomics_2017
+description: ChIP-Seq Alignment, Peak Calling, and Visualization Lab
+author: Misha Bilenky
+modified: June 15, 2017
 ---
 
 # Module 2 Lab: ChIP-Seq Alignment, Peak Calling (Enrichment Regions Detection), and Visualisation
