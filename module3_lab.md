@@ -6,6 +6,9 @@ header1: Workshop Pages for Students
 header2: Epigenomic Data Analysis 2017 Module 3 Lab
 image: /site_images/CBW_Epigenome-data_icon.jpg
 home: https://bioinformaticsdotca.github.io/epigenomics_2017
+description: Introduction to WGBS and Analysis
+author: Guillaume Bourque
+modified: June 16th 2017
 ---
 
 # Module 3: Introduction to WGBS and Analysis 
