@@ -6,6 +6,9 @@ header1: Workshop Pages for Students
 header2: Using the Compute Canada HPC
 image: /site_images/CBW_Epigenome-data_icon.jpg
 home: https://bioinformaticsdotca.github.io/epigenomics_2017
+description: Using the Compute Canada HPC
+author: David Bujold
+modified: June 16th 2017
 ---
 
 # Using the Compute Canada HPC
